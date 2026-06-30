@@ -1,0 +1,15 @@
+.quote {
+  --quote-gap: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--quote-gap);
+
+  &__bottom {
+    color: var(--gray-color-200);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --quote-gap: #{vw(12)};
+  }
+}

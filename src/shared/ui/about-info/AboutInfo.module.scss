@@ -1,0 +1,23 @@
+.about-info {
+  --about-info-gap: 32px;
+  --about-info-block-gap: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--about-info-gap);
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--about-info-block-gap);
+  }
+
+  &__textbox {
+    color: var(--gray-color-200);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --about-info-gap: #{vw(32)};
+    --about-info-block-gap: #{vw(16)};
+  }
+}

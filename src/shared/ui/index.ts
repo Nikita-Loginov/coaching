@@ -2,4 +2,8 @@ export * from "./container/Container";
 export * from "./tag/Tag";
 export * from "./lists/list-dots/ListDots";
 export * from "./button/Button/Button";
-export * from './header/Header'
+export * from "./header/Header";
+export * from "./logo/Logo";
+export * from "./menu/Menu";
+export * from "./about-info/AboutInfo";
+export * from "./quote/Quote";

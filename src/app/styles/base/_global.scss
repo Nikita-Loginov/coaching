@@ -91,9 +91,9 @@ body {
   z-index: 1;
 
   section {
-    &:not(:last-child) {
+    // &:not(:last-child) {
       margin-bottom: var(--gap-blocks);
-    }
+    // }
   }
 }
 
@@ -136,9 +136,25 @@ body {
 }
 
 .textbox {
+  --textbox-gap: 20px;
+
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--textbox-gap);
+  line-height: var(--line-height-relaxed);
+
+  @media (min-width: $desktop-breakpoint) {
+    --textbox-gap: #{vw(20)};
+  }
+}
+
+.link {
+  color: var(--gray-color-300);
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--primary-color-100);
+  }
 }
 
 nextjs-portal {

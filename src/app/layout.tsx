@@ -5,13 +5,17 @@ import "@styles/global.scss";
 const interSans = Inter({
   variable: "--font-inter-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
+  display: 'swap',
+  preload: true,
 });
 
 const cormorantGaramondSans = Cormorant_Garamond({
   variable: "--font-garamond-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {

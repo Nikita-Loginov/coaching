@@ -1,6 +1,8 @@
 .header {
-  --header-padding: 16px 40px;
+  --header-padding: 10px 28px;
   --header-border-width: 1px;
+  --header-inner-gap: 80px;
+  --header-btns-gap: 32px;
 
   position: fixed;
   z-index: 999;
@@ -11,16 +13,29 @@
   top: var(--header-padding-top);
 
   &__inner {
-    width: 100%;
+    width: fit-content;
     padding: var(--header-padding);
     backdrop-filter: blur(12px);
     border: var(--header-border-width) solid var(--primary-color-115);
     background-color: var(--dark-color-290);
     border-radius: var(--radius-max);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--header-inner-gap);
+    margin: 0 auto;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: var(--header-btns-gap);
   }
 
   @media (min-width: $desktop-breakpoint) {
-    --header-padding: #{vw(16)} #{vw(40)};
+    --header-padding: #{vw(10)} #{vw(28)};
     --header-border-width: #{vw(1)};
+    --header-inner-gap: #{vw(80)};
+    --header-btns-gap: #{vw(32)};
   }
 }

@@ -1,4 +1,8 @@
+
+
 import { Tag, Container, ListsDots, Button } from "@/shared/ui";
+
+import { PERSON_CONFIG } from "@/shared/config/person/person.config";
 
 import scss from "./HomeHero.module.scss";
 
@@ -17,8 +21,8 @@ export const HomeHero = () => {
               />
             </Tag>
 
-            <p className="p3 primary-color-100 font-text-second font-text-italic">
-              Привет, я Алексей
+            <p className="p3 primary-color-100 font-text-second font-text-italic" >
+              Привет, я {PERSON_CONFIG.name}
             </p>
 
             <h1 className="h1 text-center font-text-second">
@@ -39,8 +43,10 @@ export const HomeHero = () => {
 
             <ListsDots
               items={[
-                <p className="p4">200+ клиентов</p>,
-                <p className="p4">98% достигают цели</p>,
+                <p className="p4">{PERSON_CONFIG.clients} клиентов</p>,
+                <p className="p4">
+                  {PERSON_CONFIG.successRate} достигают цели
+                </p>,
                 <p className="p4">ICF сертификат</p>,
               ]}
             />
