@@ -1,0 +1,25 @@
+.list-dots {
+  --list-dots-gap: 8px;
+  --list-dots-link-gap: 8px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--list-dots-gap);
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: var(--list-dots-link-gap);
+  }
+
+  &--theme {
+    &-primary {
+      color: var(--primary-color-100);
+    }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --list-dots-gap: #{vw(8)};
+    --list-dots-link-gap: #{vw(8)};
+  }
+}

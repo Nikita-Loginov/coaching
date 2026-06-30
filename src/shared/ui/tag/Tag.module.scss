@@ -1,0 +1,29 @@
+.tag {
+  --tag-padding: 2px 20px;
+  --tag-gap: 8px;
+  --tag-min-height: 30px;
+  --tag-border-width: 1px;
+
+  display: flex;
+  align-items: center;
+  gap: var(--tag-gap);
+  padding: var(--tag-padding);
+  min-height: var(--tag-min-height);
+  border: var(--tag-border-width) solid transparent;
+  border-radius: var(--radius-5xl);
+
+  &--theme {
+    &-primary {
+      border-color: var(--primary-color-140);
+      background-color: var(--dark-color-278);
+      color: var(--primary-color-100);
+    }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --tag-padding: #{vw(2)} #{vw(20)};
+    --tag-gap: #{vw(8)};
+    --tag-min-height: #{vw(30)};
+    --tag-border-width: #{vw(1)};
+  }
+}

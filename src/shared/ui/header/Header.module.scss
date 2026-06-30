@@ -1,0 +1,26 @@
+.header {
+  --header-padding: 16px 40px;
+  --header-border-width: 1px;
+
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  min-width: 0;
+  left: 0;
+  right: 0;
+  top: var(--header-padding-top);
+
+  &__inner {
+    width: 100%;
+    padding: var(--header-padding);
+    backdrop-filter: blur(12px);
+    border: var(--header-border-width) solid var(--primary-color-115);
+    background-color: var(--dark-color-290);
+    border-radius: var(--radius-max);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --header-padding: #{vw(16)} #{vw(40)};
+    --header-border-width: #{vw(1)};
+  }
+}
