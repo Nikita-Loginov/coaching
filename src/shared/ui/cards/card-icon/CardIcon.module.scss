@@ -1,0 +1,39 @@
+.card-icon {
+  --card-icon-gap: 14px;
+  --card-icon-size: 40px;
+  --card-icon-border-width: 1px;
+  --card-icon-block-gap: 6px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-icon-gap);
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--card-icon-size);
+    height: var(--card-icon-size);
+    border-radius: 50%;
+    border: var(--card-icon-border-width) solid var(--primary-color-115);
+    color: var(--primary-color-100);
+    flex-shrink: 0;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-icon-block-gap);
+  }
+
+  &__textbox {
+    color: var(--gray-color-200);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --card-icon-gap: #{vw(14)};
+    --card-icon-size: #{vw(40)};
+    --card-icon-border-width: #{vw(1)};
+    --card-icon-block-gap: #{vw(6)};
+  }
+}

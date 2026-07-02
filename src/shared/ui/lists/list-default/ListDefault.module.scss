@@ -1,0 +1,28 @@
+.list-default {
+  --list-default-gap: 8px;
+  --list-default-link-gap: 4px;
+  --list-default-item-gap: 4px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-default-gap);
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--list-default-link-gap);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--list-default-item-gap);
+    width: fit-content;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --list-default-gap: #{vw(8)};
+    --list-default-link-gap: #{vw(4)};
+    --list-default-item-gap: #{vw(4)};
+  }
+}

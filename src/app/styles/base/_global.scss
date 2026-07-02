@@ -3,6 +3,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--gap-blocks);
 }
 
 html,
@@ -11,8 +12,8 @@ body {
 }
 
 ::selection {
-  // background: var(--darkviolet-0);
-  // color: var(--dark-color-0);
+  background: var(--primary-color-100);
+  color: var(--dark-color-0);
 }
 
 body {

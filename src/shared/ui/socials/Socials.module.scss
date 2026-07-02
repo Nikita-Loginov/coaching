@@ -1,0 +1,15 @@
+.socials {
+  --socials-gap: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: var(--socials-gap);
+
+  &__link {
+    // color:
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --socials-gap: #{vw(16)};
+  }
+}

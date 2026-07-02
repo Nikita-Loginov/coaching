@@ -1,5 +1,5 @@
 .home-about {
-  --home-about-inner-gap: 48px;
+  --home-about-inner-block-gap: 48px;
   --home-about-info-gap: 32px;
   --home-about-content-gap: 64px;
   --home-about-img-padding-bottom: 40px;
@@ -10,13 +10,22 @@
   --home-about-border-width: 1px;
   --home-about-items-gap: 40px;
   --home-about-item-gap: 8px;
+  --home-about-footer-gap: 16px;
+  --home-about-footer-items-gap: 32px;
+  --home-about-gap-blocks: 40px;
 
   width: 100%;
 
   &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap-blocks) / 2);
+  }
+
+  &__inner-block {
     display: grid;
     grid-template-columns: 60% auto;
-    gap: var(--home-about-inner-gap);
+    gap: var(--home-about-inner-block-gap);
   }
 
   &__info {
@@ -91,7 +100,7 @@
 
       &:before {
         position: absolute;
-        content:"" ;
+        content: "";
         width: 1px;
         height: 90%;
         right: 0;
@@ -102,8 +111,20 @@
     }
   }
 
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--home-about-footer-gap);
+  }
+
+  &__footer-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--home-about-footer-items-gap);
+  }
+
   @media (min-width: $desktop-breakpoint) {
-    --home-about-inner-gap: #{vw(48)};
+    --home-about-inner-block-gap: #{vw(48)};
     --home-about-info-gap: #{vw(32)};
     --home-about-content-gap: #{vw(64)};
     --home-about-img-padding-bottom: #{vw(40)};
@@ -114,5 +135,8 @@
     --home-about-border-width: #{vw(1)};
     --home-about-items-gap: #{vw(40)};
     --home-about-item-gap: #{vw(8)};
+    --home-about-footer-gap: #{vw(16)};
+    --home-about-footer-items-gap: #{vw(32)};
+    --home-about-gap-blocks: #{vw(40)};
   }
 }

@@ -1,0 +1,20 @@
+.top-inner {
+  --top-inner-gap: 48px;
+  --top-inner-block-gap: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--top-inner-gap);
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--top-inner-block-gap);
+    text-align: center;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --top-inner-gap: #{vw(48)};
+    --top-inner-block-gap: #{vw(20)};
+  }
+}

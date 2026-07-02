@@ -1,0 +1,9 @@
+.programs {
+  width: 100%;
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}

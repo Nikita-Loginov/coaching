@@ -21,7 +21,7 @@ export const HomeHero = () => {
               />
             </Tag>
 
-            <p className="p3 primary-color-100 font-text-second font-text-italic" >
+            <p className="p2 primary-color-100 font-text-second font-text-italic" >
               Привет, я {PERSON_CONFIG.name}
             </p>
 

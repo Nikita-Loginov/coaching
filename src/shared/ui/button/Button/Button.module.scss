@@ -18,7 +18,8 @@
   // width: 100%;
   border: var(--button-border-width) solid transparent;
   transition: background-color var(--transition-base),
-    color var(--transition-base), transform var(--transition-base) ease, border var(--transition-base), opacity var(--transition-base);
+    color var(--transition-base), transform var(--transition-base) ease,
+    border var(--transition-base), opacity var(--transition-base);
 
   &--size {
     &-small {
@@ -65,6 +66,7 @@
     &-icon {
       border-radius: var(--button-radius-icon);
       flex-shrink: 0;
+      padding: 0;
     }
   }
 
@@ -75,8 +77,8 @@
       border-color: var(--primary-color-100);
 
       &:hover {
-      //  opacity: 0.7;
-       background-color: var(--primary-color-200);
+        //  opacity: 0.7;
+        background-color: var(--primary-color-200);
       }
 
       svg path {
@@ -100,6 +102,16 @@
         svg path {
           color: var(--dark-color-200);
         }
+      }
+    }
+
+    &-flat {
+      background-color: transparent;
+      border: none;
+      color: var(--primary-color-140);
+
+      &:hover {
+        color: var(--primary-color-100);
       }
     }
   }

@@ -1,4 +1,4 @@
-import { Header } from "@/shared/ui";
+import { Header , Footer} from "@/shared/ui";
 
 interface PublicLayoutProps {
   children: React.ReactNode;
@@ -10,6 +10,8 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
       <Header />
 
       <main className="main">{children}</main>
+
+      <Footer />
     </>
   );
 }
