@@ -1,0 +1,16 @@
+.teams {
+  --teams-items-gap: 32px;
+
+  width: 100%;
+  overflow: hidden;
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--teams-items-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --teams-items-gap: #{vw(32)};
+  }
+}

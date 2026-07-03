@@ -13,6 +13,10 @@
     text-align: center;
   }
 
+  &__textbox {
+    color: var(--gray-color-200);
+  }
+
   @media (min-width: $desktop-breakpoint) {
     --top-inner-gap: #{vw(48)};
     --top-inner-block-gap: #{vw(20)};

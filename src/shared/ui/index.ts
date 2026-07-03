@@ -8,9 +8,10 @@ export * from "./menu/Menu";
 export * from "./about-info/AboutInfo";
 export * from "./quote/Quote";
 export * from "./cards/card-icon/CardIcon";
-export * from './top/top-inner/TopInner';
-export * from './fag/Fag';
-export * from './accordeon/Accordeon';
-export * from './footer/Footer';
-export * from './socials/Socials';
-export * from './lists/list-default/ListDefault'
+export * from "./top/top-inner/TopInner";
+export * from "./fag/Fag";
+export * from "./accordeon/Accordeon";
+export * from "./footer/Footer";
+export * from "./socials/Socials";
+export * from "./lists/list-default/ListDefault";
+export * from "./swiper/Swiper";

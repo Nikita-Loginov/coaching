@@ -1,5 +1,5 @@
 .tag {
-  --tag-padding: 2px 20px;
+  --tag-padding: 6px 20px;
   --tag-gap: 8px;
   --tag-min-height: 30px;
   --tag-border-width: 1px;
@@ -21,7 +21,7 @@
   }
 
   @media (min-width: $desktop-breakpoint) {
-    --tag-padding: #{vw(2)} #{vw(20)};
+    --tag-padding: #{vw(6)} #{vw(20)};
     --tag-gap: #{vw(8)};
     --tag-min-height: #{vw(30)};
     --tag-border-width: #{vw(1)};
