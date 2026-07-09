@@ -14,12 +14,13 @@
   --dark-color-278: #1a1817c7;
   --dark-color-290: #1a1817e5;
   --dark-color-300: #2c2a27;
-  --dark-color-395: #2C2A27F2;
+  --dark-color-395: #2c2a27f2;
 
   --primary-color-100: #c4aa76;
   --primary-color-115: #c4aa7626;
   --primary-color-140: #c4aa7666;
   --primary-color-200: #d4af37;
+  --primary-color-300: #b3aaa1;
 
   --font-family-main: var(--font-inter-sans), sans-serif;
   --font-family-second: var(--font-garamond-sans), sans-serif;
@@ -80,6 +81,12 @@
   --gap-blocks: 120px;
 
   --header-padding-top: 20px;
+
+  --main-padding-top: 80px;
+
+  --top-padding: calc(
+    var(--header-height, var(--calback-header-height)) + var(--main-padding-top)
+  );
 }
 
 @media (min-width: $desktop-breakpoint) {
@@ -113,6 +120,7 @@
     --icon-base: #{vw(20)};
     --icon-md: #{vw(24)};
     --header-padding-top: #{vw(20)};
+    --main-padding-top: #{vw(80)};
   }
 }
 

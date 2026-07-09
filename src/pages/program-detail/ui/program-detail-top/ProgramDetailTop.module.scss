@@ -1,0 +1,11 @@
+.program-detail-top {
+  --program-detail-top-gap: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--program-detail-top-gap);
+
+  @media (min-width: $desktop-breakpoint) {
+    --program-detail-top-gap: #{vw(16)};
+  }
+}

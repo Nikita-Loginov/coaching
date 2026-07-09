@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
+
+import { ScrollTop } from "@/shared/ui";
+
 import "@styles/global.scss";
 
 const interSans = Inter({
@@ -32,6 +35,8 @@ export default function RootLayout({
     <html lang="ru" className={`${interSans.variable} ${cormorantGaramondSans.variable}`}>
       <body>
         <div className="wrapper">{children}</div>
+
+        <ScrollTop />
       </body>
     </html>
   );

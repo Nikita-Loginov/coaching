@@ -15,3 +15,4 @@ export * from "./footer/Footer";
 export * from "./socials/Socials";
 export * from "./lists/list-default/ListDefault";
 export * from "./swiper/Swiper";
+export * from "./scrollTop/ScrollTop";

@@ -1,6 +1,8 @@
+import { CurrencyType } from "@/shared/types";
+
 export type ProgramItem = {
   id: string;
-  title: string;
+  name: string;
   description: string;
   duration: {
     sessions: number;
@@ -8,6 +10,15 @@ export type ProgramItem = {
   };
   price: string;
   icon: React.ReactNode;
-  currency: "rub" | 'eu'
+  currency: CurrencyType;
+  targetAudience: string[];
+  benefits: string[];
+  includes: string[];
+  curriculum: ProgramModule[];
   // cvetIcon?: string;
+};
+
+export type ProgramModule = {
+  title: string;
+  description: string;
 };

@@ -1,0 +1,15 @@
+.program-detail-hero {
+  --program-detail-hero-inner-gap: 64px;
+
+  width: 100%;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--program-detail-hero-inner-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --program-detail-hero-inner-gap: #{vw(64)};
+  }
+}

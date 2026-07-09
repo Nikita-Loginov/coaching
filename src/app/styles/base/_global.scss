@@ -84,16 +84,21 @@ body {
 }
 
 .main {
+  --main-section-margin-bottom: var(--gap-blocks);
+
   display: flex;
   flex-direction: column;
   flex: 1;
-  // padding-top: calc(var(--header-height, var(--calback-header-height)) + 10px);
   position: relative;
   z-index: 1;
 
+  &:not(:has(.top-block)) {
+    padding-top: var(--top-padding);
+  }
+
   section {
     // &:not(:last-child) {
-      margin-bottom: var(--gap-blocks);
+    margin-bottom: var(--main-section-margin-bottom);
     // }
   }
 }

@@ -4,6 +4,8 @@ import type { ProgramItem } from "../../model/program.types";
 
 import { Button } from "@/shared/ui";
 
+import { getSymbolCurrency } from "@/shared/utils";
+
 import scss from "./ProgramCard.module.scss";
 
 interface ProgramCardProps {
@@ -11,7 +13,7 @@ interface ProgramCardProps {
 }
 
 export const ProgramCard = ({ card }: ProgramCardProps) => {
-  const { id, title, description, duration, price, icon, currency } = card;
+  const { id, name, description, duration, price, icon, currency } = card;
 
   return (
     <div className={scss["program"]}>
@@ -21,7 +23,7 @@ export const ProgramCard = ({ card }: ProgramCardProps) => {
 
       <div className={scss["program__content"]}>
         <div className={scss["program__block"]}>
-          {title && <p className="p1 font-text-second">{title}</p>}
+          {name && <p className="p1 font-text-second">{name}</p>}
 
           {description && (
             <div className="textbox gray-color-200">
@@ -39,7 +41,7 @@ export const ProgramCard = ({ card }: ProgramCardProps) => {
             </p>
 
             <p className="p1 font-text-second">
-              от {price} {currency === "rub" ? "₽" : "$"}
+              от {price} {getSymbolCurrency(currency)}
             </p>
           </div>
         ) : null}

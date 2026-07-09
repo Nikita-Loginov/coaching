@@ -4,7 +4,7 @@ import scss from "./ListDots.module.scss";
 
 interface ListsDotsProps {
   direction?: "row" | "column";
-  theme?: "primary" | "secondary";
+  theme?: "primary" | "secondary" | 'primary-two';
   items: React.ReactNode[];
 }
 
@@ -15,10 +15,22 @@ export const ListsDots = ({
 }: ListsDotsProps) => {
   const listDotsClassName = classNames(
     scss["list-dots"],
-    scss[`list-dots--theme-${theme}`]
+    scss[`list-dots--theme-${theme}`],
+    scss[`list-dots--direction-${direction}`]
   );
 
-  if (direction === "column") return <p>//todo</p>;
+  if (direction === "column")
+    return (
+      <ul className={listDotsClassName}>
+        {items.map((item, index) => {
+          return (
+            <li className={scss["list-dots__link"]} key={index}>
+              {item}
+            </li>
+          );
+        })}
+      </ul>
+    );
 
   return (
     <ul className={listDotsClassName}>

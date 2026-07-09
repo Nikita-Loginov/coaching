@@ -1,0 +1,52 @@
+.program-detail-info {
+  --program-detail-info-gap: 64px;
+  --program-detail-info-content-gap: 48px;
+  --program-detail-info-block-gap: 16px;
+  --program-detail-info-block-big-gap: 24px;
+  --program-detail-info-info-gap: 10px;
+
+  display: grid;
+  grid-template-columns: 60% auto;
+  gap: var(--program-detail-info-gap);
+  container-type: inline-size;
+  container-name: program-detail;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--program-detail-info-content-gap);
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--program-detail-info-block-gap);
+
+    &--big {
+      gap: var(--program-detail-info-block-big-gap);
+    }
+  }
+
+  &__block-title {
+    color: var(--primary-color-100);
+    font-size: var(--font-size-base);
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--program-detail-info-info-gap);
+    // position: sticky;
+    // height: fit-content;
+    // top: var(--top-padding);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --program-detail-info-gap: #{vw(64)};
+    --program-detail-info-content-gap: #{vw(48)};
+    --program-detail-info-block-gap: #{vw(16)};
+    --program-detail-info-block-big-gap: #{vw(24)};
+    --program-detail-info-info-gap: #{vw(10)};
+  }
+}

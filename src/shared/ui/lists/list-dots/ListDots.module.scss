@@ -1,25 +1,68 @@
 .list-dots {
   --list-dots-gap: 8px;
   --list-dots-link-gap: 8px;
+  --list-dots-column-gap: 12px;
+  --list-dots-column-link-padding-left: 18px;
+  --list-dots-column-dot-size: 6px;
+  --list-dots-column-dot-top: 4px;
 
   display: flex;
   flex-wrap: wrap;
   gap: var(--list-dots-gap);
 
+  &--direction {
+    &-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--list-dots-column-gap);
+
+      .list-dots {
+        &__link {
+          padding-left: var(--list-dots-column-link-padding-left);
+          position: relative;
+
+          &:before {
+            position: absolute;
+            content: "";
+            top: var(--list-dots-column-dot-top);
+            width: var(--list-dots-column-dot-size);
+            height: var(--list-dots-column-dot-size);
+            border-radius: 50%;
+            left: 0;
+            background-color: var(--primary-color-100);
+          }
+        }
+      }
+    }
+  }
+
   &__link {
     display: flex;
     align-items: center;
     gap: var(--list-dots-link-gap);
+    line-height: var(--line-height-relaxed);
   }
 
   &--theme {
     &-primary {
       color: var(--primary-color-100);
     }
+
+    &-primary-two {
+      color: var(--primary-color-300);
+    }
+
+    &-secondary {
+      color: var(--gray-color-200);
+    }
   }
 
   @media (min-width: $desktop-breakpoint) {
     --list-dots-gap: #{vw(8)};
     --list-dots-link-gap: #{vw(8)};
+    --list-dots-column-gap: #{vw(12)};
+    --list-dots-column-link-padding-left: #{vw(18)};
+    --list-dots-column-dot-size: #{vw(6)};
+    --list-dots-column-dot-top: #{vw(4)};
   }
 }

@@ -1,4 +1,4 @@
-
+import classNames from "classnames";
 
 import { Tag, Container, ListsDots, Button } from "@/shared/ui";
 
@@ -8,7 +8,7 @@ import scss from "./HomeHero.module.scss";
 
 export const HomeHero = () => {
   return (
-    <section className={scss["home-hero"]}>
+    <section className={classNames(scss["home-hero"], 'top-block')}>
       <Container className={scss["home-hero__container"]}>
         <div className={scss["home-hero__inner"]}>
           <div className={scss["home-hero__block"]}>
