@@ -96,6 +96,14 @@ body {
     padding-top: var(--top-padding);
   }
 
+  &--noPt {
+    padding-top: 0;
+
+    &:not(:has(.top-block)) {
+      padding-top: 0;
+    }
+  }
+
   section {
     // &:not(:last-child) {
     margin-bottom: var(--main-section-margin-bottom);

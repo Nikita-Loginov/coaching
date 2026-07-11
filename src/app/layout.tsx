@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Cormorant_Garamond } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { ScrollTop } from "@/shared/ui";
 
-import { personSchema, seoConfig, developerSchema, websiteSchema } from "@/shared/config/seo";
+import {
+  personSchema,
+  seoConfig,
+  developerSchema,
+  websiteSchema,
+} from "@/shared/config/seo";
 
 import "@styles/global.scss";
 
@@ -39,18 +45,20 @@ export default function RootLayout({
       className={`${interSans.variable} ${cormorantGaramondSans.variable}`}
     >
       <body>
-        <div className="wrapper">{children}</div>
+        <ClerkProvider>
+          <div className="wrapper">{children}</div>
 
-        <ScrollTop />
+          <ScrollTop />
 
-        <Script
-          id="schema"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(combinedSchema),
-          }}
-        />
+          <Script
+            id="schema"
+            type="application/ld+json"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(combinedSchema),
+            }}
+          />
+        </ClerkProvider>
       </body>
     </html>
   );

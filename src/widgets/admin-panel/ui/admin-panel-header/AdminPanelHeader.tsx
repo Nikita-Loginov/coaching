@@ -1,0 +1,17 @@
+import { getUserEmail } from "@/shared/lib/auth";
+
+import { Breadcrumbs } from "@/shared/ui";
+
+import scss from "./AdminPanelHeader.module.scss";
+
+export const AdminPanelHeader = async () => {
+  const email = await getUserEmail();
+
+  return (
+    <header className={scss["admin-panel-header"]}>
+      <Breadcrumbs />
+      
+      <div className={scss["admin-panel-header__block"]}>{email}</div>
+    </header>
+  );
+};

@@ -1,10 +1,12 @@
 .button {
   --button-padding-small: 2px 28px;
   --button-padding-medium: 2px 28px;
+  --button-padding-ghost: 4px 12px;
   --button-icon-size-small: 40px;
   --button-icon-size-medium: 48px;
   --button-text-min-height-small: 40px;
   --button-text-min-height-medium: 52px;
+  --button-text-min-height-ghost: 42px;
 
   --button-gap: 8px;
   --button-border-width: 1px;
@@ -52,6 +54,24 @@
 
           &-text {
             min-height: var(--button-text-min-height-medium);
+          }
+        }
+      }
+    }
+
+    &-ghost {
+      padding: var(--button-padding-ghost);
+
+      &.button {
+        &--variant {
+          // &-icon {
+          //   padding: 0;
+          //   width: var(--button-icon-size-medium);
+          //   height: var(--button-icon-size-medium);
+          // }
+
+          &-text {
+            min-height: var(--button-text-min-height-ghost);
           }
         }
       }
@@ -114,6 +134,23 @@
         color: var(--primary-color-100);
       }
     }
+
+    &-ghost {
+      overflow: hidden;
+      border-radius: var(--radius-base);
+      background-color: transparent;
+      color: var(--gray-color-0);
+      justify-content: flex-start;
+
+      &:hover {
+        background-color: var(--gray-color-500);
+      }
+
+      &:active {
+        background-color: var(--gray-color-500);
+        color: var(--primary-color-100);
+      }
+    }
   }
 
   &--disabled {
@@ -133,7 +170,9 @@
   @media (min-width: $desktop-breakpoint) {
     --button-padding-small: #{vw(2)} #{vw(28)};
     --button-padding-medium: #{vw(2)} #{vw(28)};
+    --button-padding-ghost: #{vw(4)} #{vw(12)};
     --button-icon-size-small: #{vw(40)};
+    --button-text-min-height-ghost: #{vw(42)};
     --button-icon-size-medium: #{vw(48)};
     --button-text-min-height-small: #{vw(40)};
     --button-text-min-height-medium: #{vw(52)};
