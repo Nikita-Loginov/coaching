@@ -4,6 +4,8 @@ import { Container } from "../container/Container";
 
 import { PERSON_CONFIG } from "@/shared/config/person/person.config";
 
+import { SOCIAL_ITEMS_PERSON } from "@/shared/config/social/social-items.config";
+
 import { Logo } from "../logo/Logo";
 import { Socials } from "../socials/Socials";
 import { ListDefault } from "../lists/list-default/ListDefault";
@@ -35,7 +37,7 @@ export const Footer = () => {
           >
             <p className="p2 primary-color-100">Следите за мной</p>
 
-            <Socials className={scss["footer__socials"]} />
+            <Socials className={scss["footer__socials"]} items={SOCIAL_ITEMS_PERSON}/>
           </div>
 
           <ListDefault

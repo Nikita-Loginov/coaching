@@ -15,6 +15,12 @@ export type ProgramItem = {
   benefits: string[];
   includes: string[];
   curriculum: ProgramModule[];
+  seo: {
+    title: string;
+    description: string;
+    image: string;
+    keywords?: string[];
+  };
   // cvetIcon?: string;
 };
 

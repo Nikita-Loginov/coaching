@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { SOCIALS_ITEMS } from "./config/socials-items.config";
+import type { SocialItem } from "@/shared/types/social.types";
 
 import { Button } from "../button/Button/Button";
 
@@ -8,12 +8,13 @@ import scss from "./Socials.module.scss";
 
 interface SocialsProps {
   className?: string;
+  items: SocialItem[]
 }
 
-export const Socials = ({ className }: SocialsProps) => {
+export const Socials = ({ className, items }: SocialsProps) => {
   return (
     <ul className={classNames(scss["socials"], className)}>
-      {SOCIALS_ITEMS.map((social, index) => {
+      {items.map((social, index) => {
         return (
           <li className={scss["socials__link"]}>
             <Button
@@ -22,9 +23,10 @@ export const Socials = ({ className }: SocialsProps) => {
               as="link"
               to={social.to}
               variant="icon"
-              theme="flat"
-              iconSize="big"
+              theme="secondary"
+              iconSize="medium"
               target="_blank"
+               ariaLabel="Перейти соц сеть"
             />
           </li>
         );

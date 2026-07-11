@@ -1,0 +1,50 @@
+.team-detail-banner {
+  --team-detail-banner-gap: 16px;
+  --team-detail-banner-border-width: 1px;
+  --team-detail-banner-padding: 32px;
+  --team-detail-banner-top-gap: 12px;
+  --team-detail-banner-footer-gap: 12px;
+  --team-detail-banner-btns-gap: 4px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--team-detail-banner-gap);
+  border: var(--team-detail-banner-border-width) solid var(--primary-color-100);
+  background-color: var(--dark-color-300);
+  border-radius: var(--radius-xl);
+  padding: var(--team-detail-banner-padding);
+  transition: transform var(--transition-base);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--team-detail-banner-top-gap);
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--team-detail-banner-footer-gap);
+    color: var(--primary-color-300);
+    text-align: center;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--team-detail-banner-btns-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --team-detail-banner-gap: #{vw(16)};
+    --team-detail-banner-border-width: #{vw(1)};
+    --team-detail-banner-padding: #{vw(32)};
+    --team-detail-banner-top-gap: #{vw(12)};
+    --team-detail-banner-footer-gap: #{vw(12)};
+    --team-detail-banner-btns-gap: #{vw(4)};
+  }
+}

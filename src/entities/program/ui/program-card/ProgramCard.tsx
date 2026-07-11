@@ -53,6 +53,7 @@ export const ProgramCard = ({ card }: ProgramCardProps) => {
             theme="secondary"
             size="medium"
             as="link"
+            ariaLabel="Перейти на детальную страницу программы"
             to={`/program/${id}`}
           >
             <p className="p2">Подробнее</p>

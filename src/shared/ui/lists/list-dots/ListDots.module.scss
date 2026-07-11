@@ -4,7 +4,7 @@
   --list-dots-column-gap: 12px;
   --list-dots-column-link-padding-left: 18px;
   --list-dots-column-dot-size: 6px;
-  --list-dots-column-dot-top: 4px;
+  --list-dots-column-dot-top: 7px;
 
   display: flex;
   flex-wrap: wrap;
@@ -63,6 +63,6 @@
     --list-dots-column-gap: #{vw(12)};
     --list-dots-column-link-padding-left: #{vw(18)};
     --list-dots-column-dot-size: #{vw(6)};
-    --list-dots-column-dot-top: #{vw(4)};
+    --list-dots-column-dot-top: #{vw(7)};
   }
 }

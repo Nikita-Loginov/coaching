@@ -14,9 +14,10 @@ interface ButtonProps {
   variant?: "text" | "icon";
   as?: "button" | "link";
   size?: "small" | "medium";
-  theme?: "primary" | "secondary" | 'flat';
+  theme?: "primary" | "secondary" | "flat";
   to?: string;
   iconSize?: "small" | "medium" | "big";
+  ariaLabel?: string;
   target?: "_blank" | "_parent";
   tooltip?: string;
   onClick?: () => void;
@@ -38,6 +39,7 @@ export const Button = ({
   onClick,
   target,
   tooltip,
+  ariaLabel,
   ...restProps
 }: ButtonProps) => {
   const iconClassNames = classNames({
@@ -73,6 +75,7 @@ export const Button = ({
         {...restProps}
         className={buttonClassNames}
         target={target}
+        aria-label={ariaLabel || ""}
       >
         {content}
       </Link>

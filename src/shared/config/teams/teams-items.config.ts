@@ -1,4 +1,5 @@
-import { TeamItem } from "@/entities/team/model/team.types";
+import type { TeamItem } from "@/entities/team/model/team.types";
+
 import { Images } from "@/shared/images";
 
 export const TEAMS_ITEMS: TeamItem[] = [
@@ -8,6 +9,29 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Сертифицированный коуч",
     img: Images.PersonOne,
     id: "anna-smirnova",
+    city: "Москва, Россия",
+    info: [
+      "Анна — сертифицированный коуч ICF (PCC) с более чем 10-летним опытом работы с топ-менеджерами и собственниками бизнеса.",
+      "Специализируется на эмоциональном интеллекте, управлении стрессом и построении эффективных команд.",
+    ],
+    specializing: [
+      "Эмоциональный интеллект",
+      "Управление стрессом",
+      "Командообразование",
+      "Лидерские стратегии",
+      "Карьерные переходы",
+    ],
+    certification: [
+      "ICF Professional Certified Coach (PCC)",
+      "MBA, Высшая школа экономики",
+      "Сертификат по эмоциональному интеллекту (EQi 2.0)",
+      "500+ часов коучинговой практики",
+    ],
+    principle: "10+ лет помогаю руководителям находить свои решения",
+    socials: {
+      telegram: "https://t.me/anna_smirnova",
+      vk: "https://vk.com/anna_smirnova",
+    },
   },
   {
     name: "Дмитрий",
@@ -15,6 +39,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Бизнес-коуч",
     img: Images.PersonTwo,
     id: "dmitry-volkov",
+    city: "Санкт-Петербург, Россия",
+    info: [
+      "Дмитрий — бизнес-коуч с экспертизой в стратегическом планировании и развитии компаний.",
+      "Помогает предпринимателям выходить на новые рынки и масштабировать бизнес.",
+    ],
+    specializing: [
+      "Стратегическое планирование",
+      "Масштабирование бизнеса",
+      "Финансовое моделирование",
+      "Управление проектами",
+    ],
+    certification: [
+      "ICF Certified Coach",
+      "Executive MBA, INSEAD",
+      "Сертификат по стратегическому менеджменту",
+    ],
+    principle: "Помогаю бизнесу расти и выходить на новый уровень",
+    socials: {
+      telegram: "https://t.me/dmitry_volkov",
+      vk: "https://vk.com/dmitry_volkov",
+    },
   },
   {
     name: "Мария",
@@ -22,6 +67,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Командный коуч, психолог",
     img: Images.PersonThree,
     id: "maria-kozlova",
+    city: "Екатеринбург, Россия",
+    info: [
+      "Мария — командный коуч и практикующий психолог с 8-летним стажем.",
+      "Специализируется на построении здоровой корпоративной культуры и разрешении конфликтов.",
+    ],
+    specializing: [
+      "Командообразование",
+      "Корпоративная культура",
+      "Управление конфликтами",
+      "Психология лидерства",
+    ],
+    certification: [
+      "Клинический психолог, МГУ",
+      "Сертифицированный командный коуч",
+      "300+ часов групповой работы",
+    ],
+    principle: "Создаю команды, которые достигают целей",
+    socials: {
+      telegram: "https://t.me/maria_kozlova",
+      vk: "https://vk.com/maria_kozlova",
+    },
   },
   {
     name: "Екатерина",
@@ -29,6 +95,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Коуч по карьерному развитию",
     img: Images.PersonOne,
     id: "ekaterina-ivanova",
+    city: "Москва, Россия",
+    info: [
+      "Екатерина — эксперт в области карьерного развития и профориентации.",
+      "Помогает специалистам находить призвание и строить успешную карьерную траекторию.",
+    ],
+    specializing: [
+      "Профориентация",
+      "Карьерное планирование",
+      "Развитие soft skills",
+      "Сопровождение при смене профессии",
+    ],
+    certification: [
+      "Career Development Coach",
+      "Сертификат по профориентации",
+      "HR-эксперт с 15-летним опытом",
+    ],
+    principle: "Помогаю найти работу мечты и реализовать потенциал",
+    socials: {
+      telegram: "https://t.me/ekaterina_ivanova",
+      vk: "https://vk.com/ekaterina_ivanova",
+    },
   },
   {
     name: "Сергей",
@@ -36,6 +123,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Эксперт по управлению изменениями",
     img: Images.PersonTwo,
     id: "sergey-petrov",
+    city: "Казань, Россия",
+    info: [
+      "Сергей — специалист по управлению организационными изменениями.",
+      "Сопровождает компании в периоды трансформаций и кризисов.",
+    ],
+    specializing: [
+      "Управление изменениями",
+      "Организационная трансформация",
+      "Кризис-менеджмент",
+      "Внедрение инноваций",
+    ],
+    certification: [
+      "Prosci Certified Change Practitioner",
+      "PhD в области управления",
+      "Lean Six Sigma Black Belt",
+    ],
+    principle: "Помогаю компаниям меняться без потерь и страха",
+    socials: {
+      telegram: "https://t.me/sergey_petrov",
+      vk: "https://vk.com/sergey_petrov",
+    },
   },
   {
     name: "Ольга",
@@ -43,6 +151,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Коуч по эффективности и продуктивности",
     img: Images.PersonThree,
     id: "olga-sokolova",
+    city: "Новосибирск, Россия",
+    info: [
+      "Ольга — коуч по личной эффективности и тайм-менеджменту.",
+      "Помогает руководителям и специалистам достигать большего с меньшими затратами ресурсов.",
+    ],
+    specializing: [
+      "Тайм-менеджмент",
+      "Личная эффективность",
+      "Управление энергией",
+      "Привычки высокоэффективных людей",
+    ],
+    certification: [
+      "ICF Certified Coach",
+      "Сертификат по тайм-менеджменту",
+      'Автор методологии "Energy Flow"',
+    ],
+    principle: "Помогаю делать больше, тратя меньше",
+    socials: {
+      telegram: "https://t.me/olga_sokolova",
+      vk: "https://vk.com/olga_sokolova",
+    },
   },
   {
     name: "Алексей",
@@ -50,6 +179,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Сертифицированный коуч ICF, ACTP",
     img: Images.PersonOne,
     id: "alexey-morozov",
+    city: "Москва, Россия",
+    info: [
+      "Алексей — сертифицированный коуч ICF (ACTP) с 12-летним опытом.",
+      "Работает с топ-менеджментом крупных корпораций и основателями стартапов.",
+    ],
+    specializing: [
+      "Лидерские стратегии",
+      "Развитие управленческих навыков",
+      "Стратегическое мышление",
+      "Инновационное лидерство",
+    ],
+    certification: [
+      "ICF Professional Certified Coach (PCC)",
+      "ACTP, Международный коучинговый институт",
+      "MBA, Стокгольмская школа экономики",
+    ],
+    principle: "Вдохновляю лидеров на великие достижения",
+    socials: {
+      telegram: "https://t.me/alexey_morozov",
+      vk: "https://vk.com/alexey_morozov",
+    },
   },
   {
     name: "Наталья",
@@ -57,6 +207,28 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Коуч по эмоциональному интеллекту",
     img: Images.PersonTwo,
     id: "natalia-lebedeva",
+    city: "Самара, Россия",
+    info: [
+      "Наталья — специалист по развитию эмоционального интеллекта и межличностных коммуникаций.",
+      "Работает с руководителями и сотрудниками над улучшением климата в коллективе.",
+    ],
+    specializing: [
+      "Эмоциональный интеллект",
+      "Развитие эмпатии",
+      "Межличностные коммуникации",
+      "Конфликтология",
+    ],
+    certification: [
+      "ICF Certified Coach",
+      "Сертификат EQi 2.0 и EQ360",
+      "Психолог, СПбГУ",
+      "800+ часов практики",
+    ],
+    principle: "Помогаю находить общий язык даже с самыми сложными людьми",
+    socials: {
+      telegram: "https://t.me/natalia_lebedeva",
+      vk: "https://vk.com/natalia_lebedeva",
+    },
   },
   {
     name: "Игорь",
@@ -64,5 +236,27 @@ export const TEAMS_ITEMS: TeamItem[] = [
     post: "Бизнес-тренер, эксперт по командообразованию",
     img: Images.PersonThree,
     id: "igor-novikov",
+    city: "Ростов-на-Дону, Россия",
+    info: [
+      "Игорь — бизнес-тренер и эксперт по командообразованию с 15-летним опытом.",
+      "Проводит тренинги и воркшопы для команд любого уровня.",
+    ],
+    specializing: [
+      "Командообразование",
+      "Корпоративные тренинги",
+      "Воркшопы",
+      "Тимбилдинг",
+      "Развитие командного духа",
+    ],
+    certification: [
+      "Сертифицированный бизнес-тренер",
+      "Сертификат по фасилитации",
+      "Мастер-тренер по командообразованию",
+    ],
+    principle: "Объединяю людей для достижения общих целей",
+    socials: {
+      telegram: "https://t.me/igor_novikov",
+      vk: "https://vk.com/igor_novikov",
+    },
   },
 ];

@@ -17,7 +17,7 @@ export const ReviewCard = ({ review: { author, desc } }: ReviewCardProps) => {
         <div className={scss["review-card__block"]}>
           <p className="p2">{author.name}</p>
 
-          <p className="p3">{author.post}</p>
+          <p className="p3 primary-color-100">{author.post}</p>
         </div>
       </div>
 

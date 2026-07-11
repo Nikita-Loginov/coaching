@@ -6,4 +6,13 @@ export type TeamItem = {
   middlename: string;
   id: string;
   img: string | StaticImageData;
+  socials?: {
+    telegram: string,
+    vk: string,
+  },
+  city?: string;
+  info: string[];
+  specializing: string[];
+  certification: string[];
+  principle: string;
 };

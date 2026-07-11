@@ -1,9 +1,15 @@
 .reviews {
+  --reviews-items-gap: 24px;
+
   width: 100%;
 
   &__items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: var(--reviews-items-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --reviews-items-gap: #{vw(24)};
   }
 }
