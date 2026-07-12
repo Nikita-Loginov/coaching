@@ -36,6 +36,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/pages/home/ui/home-about/config/about-advantages.config.tsx"  ],
+, "src/pages/home/ui/home-about/config/about-advantages.config.tsx", "src/features/program/ui/program-admin-list"  ],
   "exclude": ["node_modules"]
 }

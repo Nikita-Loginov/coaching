@@ -1,4 +1,5 @@
-import { CurrencyType } from "@/shared/types";
+import { ProgramIconKey } from "@/entities/program/lib/icon-map";
+import type { CurrencyType } from "@/shared/types";
 
 export type ProgramItem = {
   id: string;
@@ -9,7 +10,7 @@ export type ProgramItem = {
     months: number;
   };
   price: string;
-  icon: React.ReactNode;
+  icon: ProgramIconKey;
   currency: CurrencyType;
   targetAudience: string[];
   benefits: string[];

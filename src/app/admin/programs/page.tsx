@@ -1,3 +1,15 @@
+import { AdminContent, AdminItems } from "@/pages/admin-page";
+
+import { ProgramAdminList } from "@/features/program/ui";
+
 export default function AdminPrograms() {
-  return <p>AdminPrograms</p>;
+  return (
+    <AdminContent
+      title="Программы"
+      text="Управляйте программами коучинга"
+      linkTo="/admin/programs/new"
+    >
+      <ProgramAdminList />
+    </AdminContent>
+  );
 }

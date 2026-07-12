@@ -20,13 +20,34 @@ export type ProgramModel = runtime.Types.Result.DefaultSelection<Prisma.$Program
 
 export type AggregateProgram = {
   _count: ProgramCountAggregateOutputType | null
+  _avg: ProgramAvgAggregateOutputType | null
+  _sum: ProgramSumAggregateOutputType | null
   _min: ProgramMinAggregateOutputType | null
   _max: ProgramMaxAggregateOutputType | null
+}
+
+export type ProgramAvgAggregateOutputType = {
+  sessions: number | null
+  months: number | null
+}
+
+export type ProgramSumAggregateOutputType = {
+  sessions: number | null
+  months: number | null
 }
 
 export type ProgramMinAggregateOutputType = {
   id: string | null
   name: string | null
+  description: string | null
+  sessions: number | null
+  months: number | null
+  price: string | null
+  currency: $Enums.Currency | null
+  icon: string | null
+  seoTitle: string | null
+  seoDescription: string | null
+  seoImage: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -34,6 +55,15 @@ export type ProgramMinAggregateOutputType = {
 export type ProgramMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  description: string | null
+  sessions: number | null
+  months: number | null
+  price: string | null
+  currency: $Enums.Currency | null
+  icon: string | null
+  seoTitle: string | null
+  seoDescription: string | null
+  seoImage: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -41,15 +71,48 @@ export type ProgramMaxAggregateOutputType = {
 export type ProgramCountAggregateOutputType = {
   id: number
   name: number
+  description: number
+  sessions: number
+  months: number
+  price: number
+  currency: number
+  icon: number
+  targetAudience: number
+  benefits: number
+  includes: number
+  curriculum: number
+  seoTitle: number
+  seoDescription: number
+  seoImage: number
+  seoKeywords: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
 
+export type ProgramAvgAggregateInputType = {
+  sessions?: true
+  months?: true
+}
+
+export type ProgramSumAggregateInputType = {
+  sessions?: true
+  months?: true
+}
+
 export type ProgramMinAggregateInputType = {
   id?: true
   name?: true
+  description?: true
+  sessions?: true
+  months?: true
+  price?: true
+  currency?: true
+  icon?: true
+  seoTitle?: true
+  seoDescription?: true
+  seoImage?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -57,6 +120,15 @@ export type ProgramMinAggregateInputType = {
 export type ProgramMaxAggregateInputType = {
   id?: true
   name?: true
+  description?: true
+  sessions?: true
+  months?: true
+  price?: true
+  currency?: true
+  icon?: true
+  seoTitle?: true
+  seoDescription?: true
+  seoImage?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -64,6 +136,20 @@ export type ProgramMaxAggregateInputType = {
 export type ProgramCountAggregateInputType = {
   id?: true
   name?: true
+  description?: true
+  sessions?: true
+  months?: true
+  price?: true
+  currency?: true
+  icon?: true
+  targetAudience?: true
+  benefits?: true
+  includes?: true
+  curriculum?: true
+  seoTitle?: true
+  seoDescription?: true
+  seoImage?: true
+  seoKeywords?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -107,6 +193,18 @@ export type ProgramAggregateArgs<ExtArgs extends runtime.Types.Extensions.Intern
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: ProgramAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: ProgramSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: ProgramMinAggregateInputType
@@ -137,6 +235,8 @@ export type ProgramGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   _count?: ProgramCountAggregateInputType | true
+  _avg?: ProgramAvgAggregateInputType
+  _sum?: ProgramSumAggregateInputType
   _min?: ProgramMinAggregateInputType
   _max?: ProgramMaxAggregateInputType
 }
@@ -144,9 +244,25 @@ export type ProgramGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProgramGroupByOutputType = {
   id: string
   name: string
+  description: string
+  sessions: number
+  months: number
+  price: string
+  currency: $Enums.Currency
+  icon: string
+  targetAudience: string[]
+  benefits: string[]
+  includes: string[]
+  curriculum: runtime.JsonValue
+  seoTitle: string
+  seoDescription: string
+  seoImage: string
+  seoKeywords: string[]
   createdAt: Date
   updatedAt: Date
   _count: ProgramCountAggregateOutputType | null
+  _avg: ProgramAvgAggregateOutputType | null
+  _sum: ProgramSumAggregateOutputType | null
   _min: ProgramMinAggregateOutputType | null
   _max: ProgramMaxAggregateOutputType | null
 }
@@ -172,6 +288,20 @@ export type ProgramWhereInput = {
   NOT?: Prisma.ProgramWhereInput | Prisma.ProgramWhereInput[]
   id?: Prisma.StringFilter<"Program"> | string
   name?: Prisma.StringFilter<"Program"> | string
+  description?: Prisma.StringFilter<"Program"> | string
+  sessions?: Prisma.IntFilter<"Program"> | number
+  months?: Prisma.IntFilter<"Program"> | number
+  price?: Prisma.StringFilter<"Program"> | string
+  currency?: Prisma.EnumCurrencyFilter<"Program"> | $Enums.Currency
+  icon?: Prisma.StringFilter<"Program"> | string
+  targetAudience?: Prisma.StringNullableListFilter<"Program">
+  benefits?: Prisma.StringNullableListFilter<"Program">
+  includes?: Prisma.StringNullableListFilter<"Program">
+  curriculum?: Prisma.JsonFilter<"Program">
+  seoTitle?: Prisma.StringFilter<"Program"> | string
+  seoDescription?: Prisma.StringFilter<"Program"> | string
+  seoImage?: Prisma.StringFilter<"Program"> | string
+  seoKeywords?: Prisma.StringNullableListFilter<"Program">
   createdAt?: Prisma.DateTimeFilter<"Program"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Program"> | Date | string
 }
@@ -179,6 +309,20 @@ export type ProgramWhereInput = {
 export type ProgramOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
+  targetAudience?: Prisma.SortOrder
+  benefits?: Prisma.SortOrder
+  includes?: Prisma.SortOrder
+  curriculum?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
+  seoImage?: Prisma.SortOrder
+  seoKeywords?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -189,6 +333,20 @@ export type ProgramWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProgramWhereInput[]
   NOT?: Prisma.ProgramWhereInput | Prisma.ProgramWhereInput[]
   name?: Prisma.StringFilter<"Program"> | string
+  description?: Prisma.StringFilter<"Program"> | string
+  sessions?: Prisma.IntFilter<"Program"> | number
+  months?: Prisma.IntFilter<"Program"> | number
+  price?: Prisma.StringFilter<"Program"> | string
+  currency?: Prisma.EnumCurrencyFilter<"Program"> | $Enums.Currency
+  icon?: Prisma.StringFilter<"Program"> | string
+  targetAudience?: Prisma.StringNullableListFilter<"Program">
+  benefits?: Prisma.StringNullableListFilter<"Program">
+  includes?: Prisma.StringNullableListFilter<"Program">
+  curriculum?: Prisma.JsonFilter<"Program">
+  seoTitle?: Prisma.StringFilter<"Program"> | string
+  seoDescription?: Prisma.StringFilter<"Program"> | string
+  seoImage?: Prisma.StringFilter<"Program"> | string
+  seoKeywords?: Prisma.StringNullableListFilter<"Program">
   createdAt?: Prisma.DateTimeFilter<"Program"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Program"> | Date | string
 }, "id">
@@ -196,11 +354,27 @@ export type ProgramWhereUniqueInput = Prisma.AtLeast<{
 export type ProgramOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
+  targetAudience?: Prisma.SortOrder
+  benefits?: Prisma.SortOrder
+  includes?: Prisma.SortOrder
+  curriculum?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
+  seoImage?: Prisma.SortOrder
+  seoKeywords?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProgramCountOrderByAggregateInput
+  _avg?: Prisma.ProgramAvgOrderByAggregateInput
   _max?: Prisma.ProgramMaxOrderByAggregateInput
   _min?: Prisma.ProgramMinOrderByAggregateInput
+  _sum?: Prisma.ProgramSumOrderByAggregateInput
 }
 
 export type ProgramScalarWhereWithAggregatesInput = {
@@ -209,6 +383,20 @@ export type ProgramScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProgramScalarWhereWithAggregatesInput | Prisma.ProgramScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Program"> | string
   name?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  description?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  sessions?: Prisma.IntWithAggregatesFilter<"Program"> | number
+  months?: Prisma.IntWithAggregatesFilter<"Program"> | number
+  price?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  currency?: Prisma.EnumCurrencyWithAggregatesFilter<"Program"> | $Enums.Currency
+  icon?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  targetAudience?: Prisma.StringNullableListFilter<"Program">
+  benefits?: Prisma.StringNullableListFilter<"Program">
+  includes?: Prisma.StringNullableListFilter<"Program">
+  curriculum?: Prisma.JsonWithAggregatesFilter<"Program">
+  seoTitle?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  seoDescription?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  seoImage?: Prisma.StringWithAggregatesFilter<"Program"> | string
+  seoKeywords?: Prisma.StringNullableListFilter<"Program">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Program"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Program"> | Date | string
 }
@@ -216,6 +404,20 @@ export type ProgramScalarWhereWithAggregatesInput = {
 export type ProgramCreateInput = {
   id: string
   name: string
+  description: string
+  sessions: number
+  months: number
+  price: string
+  currency: $Enums.Currency
+  icon: string
+  targetAudience?: Prisma.ProgramCreatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramCreatebenefitsInput | string[]
+  includes?: Prisma.ProgramCreateincludesInput | string[]
+  curriculum: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle: string
+  seoDescription: string
+  seoImage: string
+  seoKeywords?: Prisma.ProgramCreateseoKeywordsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -223,6 +425,20 @@ export type ProgramCreateInput = {
 export type ProgramUncheckedCreateInput = {
   id: string
   name: string
+  description: string
+  sessions: number
+  months: number
+  price: string
+  currency: $Enums.Currency
+  icon: string
+  targetAudience?: Prisma.ProgramCreatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramCreatebenefitsInput | string[]
+  includes?: Prisma.ProgramCreateincludesInput | string[]
+  curriculum: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle: string
+  seoDescription: string
+  seoImage: string
+  seoKeywords?: Prisma.ProgramCreateseoKeywordsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -230,6 +446,20 @@ export type ProgramUncheckedCreateInput = {
 export type ProgramUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  sessions?: Prisma.IntFieldUpdateOperationsInput | number
+  months?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  targetAudience?: Prisma.ProgramUpdatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramUpdatebenefitsInput | string[]
+  includes?: Prisma.ProgramUpdateincludesInput | string[]
+  curriculum?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  seoImage?: Prisma.StringFieldUpdateOperationsInput | string
+  seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -237,6 +467,20 @@ export type ProgramUpdateInput = {
 export type ProgramUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  sessions?: Prisma.IntFieldUpdateOperationsInput | number
+  months?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  targetAudience?: Prisma.ProgramUpdatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramUpdatebenefitsInput | string[]
+  includes?: Prisma.ProgramUpdateincludesInput | string[]
+  curriculum?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  seoImage?: Prisma.StringFieldUpdateOperationsInput | string
+  seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -244,6 +488,20 @@ export type ProgramUncheckedUpdateInput = {
 export type ProgramCreateManyInput = {
   id: string
   name: string
+  description: string
+  sessions: number
+  months: number
+  price: string
+  currency: $Enums.Currency
+  icon: string
+  targetAudience?: Prisma.ProgramCreatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramCreatebenefitsInput | string[]
+  includes?: Prisma.ProgramCreateincludesInput | string[]
+  curriculum: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle: string
+  seoDescription: string
+  seoImage: string
+  seoKeywords?: Prisma.ProgramCreateseoKeywordsInput | string[]
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -251,6 +509,20 @@ export type ProgramCreateManyInput = {
 export type ProgramUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  sessions?: Prisma.IntFieldUpdateOperationsInput | number
+  months?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  targetAudience?: Prisma.ProgramUpdatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramUpdatebenefitsInput | string[]
+  includes?: Prisma.ProgramUpdateincludesInput | string[]
+  curriculum?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  seoImage?: Prisma.StringFieldUpdateOperationsInput | string
+  seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -258,20 +530,70 @@ export type ProgramUpdateManyMutationInput = {
 export type ProgramUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  sessions?: Prisma.IntFieldUpdateOperationsInput | number
+  months?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  targetAudience?: Prisma.ProgramUpdatetargetAudienceInput | string[]
+  benefits?: Prisma.ProgramUpdatebenefitsInput | string[]
+  includes?: Prisma.ProgramUpdateincludesInput | string[]
+  curriculum?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  seoTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  seoImage?: Prisma.StringFieldUpdateOperationsInput | string
+  seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
 }
 
 export type ProgramCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
+  targetAudience?: Prisma.SortOrder
+  benefits?: Prisma.SortOrder
+  includes?: Prisma.SortOrder
+  curriculum?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
+  seoImage?: Prisma.SortOrder
+  seoKeywords?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type ProgramAvgOrderByAggregateInput = {
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
 }
 
 export type ProgramMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
+  seoImage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -279,12 +601,74 @@ export type ProgramMaxOrderByAggregateInput = {
 export type ProgramMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  icon?: Prisma.SortOrder
+  seoTitle?: Prisma.SortOrder
+  seoDescription?: Prisma.SortOrder
+  seoImage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
+export type ProgramSumOrderByAggregateInput = {
+  sessions?: Prisma.SortOrder
+  months?: Prisma.SortOrder
+}
+
+export type ProgramCreatetargetAudienceInput = {
+  set: string[]
+}
+
+export type ProgramCreatebenefitsInput = {
+  set: string[]
+}
+
+export type ProgramCreateincludesInput = {
+  set: string[]
+}
+
+export type ProgramCreateseoKeywordsInput = {
+  set: string[]
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type EnumCurrencyFieldUpdateOperationsInput = {
+  set?: $Enums.Currency
+}
+
+export type ProgramUpdatetargetAudienceInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type ProgramUpdatebenefitsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type ProgramUpdateincludesInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type ProgramUpdateseoKeywordsInput = {
+  set?: string[]
+  push?: string | string[]
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -296,6 +680,20 @@ export type DateTimeFieldUpdateOperationsInput = {
 export type ProgramSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  description?: boolean
+  sessions?: boolean
+  months?: boolean
+  price?: boolean
+  currency?: boolean
+  icon?: boolean
+  targetAudience?: boolean
+  benefits?: boolean
+  includes?: boolean
+  curriculum?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
+  seoImage?: boolean
+  seoKeywords?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["program"]>
@@ -303,6 +701,20 @@ export type ProgramSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type ProgramSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  description?: boolean
+  sessions?: boolean
+  months?: boolean
+  price?: boolean
+  currency?: boolean
+  icon?: boolean
+  targetAudience?: boolean
+  benefits?: boolean
+  includes?: boolean
+  curriculum?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
+  seoImage?: boolean
+  seoKeywords?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["program"]>
@@ -310,6 +722,20 @@ export type ProgramSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type ProgramSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  description?: boolean
+  sessions?: boolean
+  months?: boolean
+  price?: boolean
+  currency?: boolean
+  icon?: boolean
+  targetAudience?: boolean
+  benefits?: boolean
+  includes?: boolean
+  curriculum?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
+  seoImage?: boolean
+  seoKeywords?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["program"]>
@@ -317,11 +743,25 @@ export type ProgramSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type ProgramSelectScalar = {
   id?: boolean
   name?: boolean
+  description?: boolean
+  sessions?: boolean
+  months?: boolean
+  price?: boolean
+  currency?: boolean
+  icon?: boolean
+  targetAudience?: boolean
+  benefits?: boolean
+  includes?: boolean
+  curriculum?: boolean
+  seoTitle?: boolean
+  seoDescription?: boolean
+  seoImage?: boolean
+  seoKeywords?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProgramOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["program"]>
+export type ProgramOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "sessions" | "months" | "price" | "currency" | "icon" | "targetAudience" | "benefits" | "includes" | "curriculum" | "seoTitle" | "seoDescription" | "seoImage" | "seoKeywords" | "createdAt" | "updatedAt", ExtArgs["result"]["program"]>
 
 export type $ProgramPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Program"
@@ -329,6 +769,20 @@ export type $ProgramPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    description: string
+    sessions: number
+    months: number
+    price: string
+    currency: $Enums.Currency
+    icon: string
+    targetAudience: string[]
+    benefits: string[]
+    includes: string[]
+    curriculum: runtime.JsonValue
+    seoTitle: string
+    seoDescription: string
+    seoImage: string
+    seoKeywords: string[]
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["program"]>
@@ -756,6 +1210,20 @@ export interface Prisma__ProgramClient<T, Null = never, ExtArgs extends runtime.
 export interface ProgramFieldRefs {
   readonly id: Prisma.FieldRef<"Program", 'String'>
   readonly name: Prisma.FieldRef<"Program", 'String'>
+  readonly description: Prisma.FieldRef<"Program", 'String'>
+  readonly sessions: Prisma.FieldRef<"Program", 'Int'>
+  readonly months: Prisma.FieldRef<"Program", 'Int'>
+  readonly price: Prisma.FieldRef<"Program", 'String'>
+  readonly currency: Prisma.FieldRef<"Program", 'Currency'>
+  readonly icon: Prisma.FieldRef<"Program", 'String'>
+  readonly targetAudience: Prisma.FieldRef<"Program", 'String[]'>
+  readonly benefits: Prisma.FieldRef<"Program", 'String[]'>
+  readonly includes: Prisma.FieldRef<"Program", 'String[]'>
+  readonly curriculum: Prisma.FieldRef<"Program", 'Json'>
+  readonly seoTitle: Prisma.FieldRef<"Program", 'String'>
+  readonly seoDescription: Prisma.FieldRef<"Program", 'String'>
+  readonly seoImage: Prisma.FieldRef<"Program", 'String'>
+  readonly seoKeywords: Prisma.FieldRef<"Program", 'String[]'>
   readonly createdAt: Prisma.FieldRef<"Program", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Program", 'DateTime'>
 }

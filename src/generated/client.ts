@@ -49,3 +49,13 @@ path.join(process.cwd(), "src/generated/libquery_engine-darwin-arm64.dylib.node"
  * 
  */
 export type Program = Prisma.ProgramModel
+/**
+ * Model Review
+ * 
+ */
+export type Review = Prisma.ReviewModel
+/**
+ * Model Team
+ * 
+ */
+export type Team = Prisma.TeamModel

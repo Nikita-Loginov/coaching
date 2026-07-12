@@ -2,11 +2,14 @@ import { Container, TopInner } from "@/shared/ui";
 
 import { ProgramCard } from "@/entities/program/ui";
 
-import { PROGRAMS_ITEMS } from "@/shared/config/programs/programs-items.config";
+import { getPrograms } from "@/entities/program/model/program.queries";
 
 import scss from "./ProgramsSection.module.scss";
 
-export const ProgramsSection = () => {
+
+export const ProgramsSection = async () => {
+  const programs = await getPrograms();
+  
   return (
     <section className={scss["programs"]} id="programs">
       <Container>
@@ -14,9 +17,9 @@ export const ProgramsSection = () => {
           title="Программы коучинга"
           desc={["Индивидуально. Для команд. Для первых лиц."]}
         >
-          {PROGRAMS_ITEMS.length > 0 ? (
+          {programs.length > 0 ? (
             <div className={scss["programs__items"]}>
-              {PROGRAMS_ITEMS.map((program) => {
+              {programs.map((program) => {
                 return <ProgramCard key={program.id} card={{ ...program }} />;
               })}
             </div>

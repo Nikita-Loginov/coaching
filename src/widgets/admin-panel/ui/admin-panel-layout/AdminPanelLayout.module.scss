@@ -10,12 +10,15 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: var(--admin-panel-layout-content-gap);
+    // gap: var(--admin-panel-layout-content-gap);
     width: 100%;
   }
 
   &__wrapper {
     padding-inline: var(--admin-panel-header-padding-inline);
+    padding-block: var(--admin-panel-layout-content-gap);
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   @media (min-width: $desktop-breakpoint) {

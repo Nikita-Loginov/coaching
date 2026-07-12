@@ -13,8 +13,8 @@ interface ButtonProps {
   disabled?: boolean;
   variant?: "text" | "icon";
   as?: "button" | "link";
-  size?: "small" | "medium" | 'ghost';
-  theme?: "primary" | "secondary" | "flat" | 'ghost';
+  size?: "small" | "medium" | 'ghost' | 'default';
+  theme?: "primary" | "secondary" | "flat" | 'ghost' | 'remove' | 'default';
   to?: string;
   iconSize?: "small" | "medium" | "big";
   ariaLabel?: string;

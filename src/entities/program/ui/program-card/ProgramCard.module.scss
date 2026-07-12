@@ -6,7 +6,7 @@
   --program-block-gap: 12px;
   --program-content-gap: 24px;
   --program-footer-gap: 16px;
-  --program-btns-gap: 16px;
+  --program-btns-gap: 10px;
   --program-hover-transform: -4px;
 
   display: flex;
@@ -60,6 +60,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--program-btns-gap);
+
+    &--two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (min-width: $desktop-breakpoint) {
@@ -70,7 +75,7 @@
     --program-block-gap: #{vw(12)};
     --program-content-gap: #{vw(24)};
     --program-footer-gap: #{vw(16)};
-    --program-btns-gap: #{vw(16)};
+    --program-btns-gap: #{vw(10)};
     --program-hover-transform: #{vw(-4)};
   }
 }

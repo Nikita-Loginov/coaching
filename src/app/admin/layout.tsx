@@ -1,7 +1,10 @@
+import { redirect } from "next/navigation";
+
 import { AdminPanelLayout } from "@/widgets/admin-panel/ui";
 
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+
+import { ReactQueryProvider } from "@/shared/api/react-query/provider";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -15,6 +18,8 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
   }
 
   return (
-    <AdminPanelLayout>{children}</AdminPanelLayout>
+    <ReactQueryProvider>
+      <AdminPanelLayout>{children}</AdminPanelLayout>
+    </ReactQueryProvider>
   );
 }

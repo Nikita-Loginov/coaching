@@ -11,6 +11,9 @@
   "dependencies": {
     "@clerk/nextjs": "^7.5.17",
     "@prisma/client": "^6.19.3",
+    "@radix-ui/react-select": "^2.3.3",
+    "@tanstack/react-query": "^5.101.2",
+    "axios": "^1.18.1",
     "classnames": "^2.5.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.23.0",

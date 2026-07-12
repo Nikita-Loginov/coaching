@@ -1,6 +1,6 @@
 .breadcrumbs {
   --breadcrumbs-gap: 10px;
-  --breadcrumbs-list-gap: 2px;
+  --breadcrumbs-list-gap: 4px;
 
   display: flex;
   flex-direction: column;
@@ -29,6 +29,6 @@
 
   @media (min-width: $desktop-breakpoint) {
     --breadcrumbs-gap: #{vw(10)};
-    --breadcrumbs-list-gap: #{vw(2)};
+    --breadcrumbs-list-gap: #{vw(4)};
   }
 }

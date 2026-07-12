@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ProgramDetailPage } from "@/pages/program-detail";
 
-import { PROGRAMS_ITEMS } from "@/shared/config/programs/programs-items.config";
+import { getProgramById } from "@/entities/program/model/program.queries";
 
 import { createProgramSchema } from "@/shared/config/seo";
 import { Metadata } from "next";
@@ -21,9 +21,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
 
-  const program = PROGRAMS_ITEMS.find(
-    (program) => program.id.toString() === id.toString()
-  );
+  const program = await getProgramById(id);
 
   if (!program) {
     notFound();
@@ -57,9 +55,7 @@ export async function generateMetadata({
 export default async function ProgramDetali({ params }: PageProps) {
   const { id } = await params;
 
-  const program = PROGRAMS_ITEMS.find(
-    (program) => program.id.toString() === id.toString()
-  );
+  const program = await getProgramById(id);
 
   if (!program) return null;
 

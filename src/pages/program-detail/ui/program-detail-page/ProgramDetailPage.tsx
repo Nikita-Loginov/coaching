@@ -3,7 +3,7 @@ import { Container } from "@/shared/ui";
 import { ProgramDetailTop } from "../program-detail-top/ProgramDetailTop";
 import { ProgramDetailInfo } from "../program-detail-info/ProgramDetailInfo";
 
-import { PROGRAMS_ITEMS } from "@/shared/config/programs/programs-items.config";
+import { getProgramById } from "@/entities/program/model/program.queries";
 
 import { ReviewsSection } from "@/widgets/reviews";
 
@@ -13,10 +13,8 @@ interface ProgramDetailPageProps {
   idProgram: string;
 }
 
-export const ProgramDetailPage = ({ idProgram }: ProgramDetailPageProps) => {
-  const program = PROGRAMS_ITEMS.find(
-    (program) => program.id.toString() === idProgram.toString()
-  );
+export const ProgramDetailPage = async ({ idProgram }: ProgramDetailPageProps) => {
+  const program = await getProgramById(idProgram);
 
   if (!program) return;
 

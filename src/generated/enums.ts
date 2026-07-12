@@ -9,7 +9,17 @@
 * 🟢 You can import this file directly.
 */
 
+export const Currency = {
+  rub: 'rub',
+  eu: 'eu'
+} as const
+
+export type Currency = (typeof Currency)[keyof typeof Currency]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const TargetType = {
+  program: 'program',
+  course: 'course'
+} as const
+
+export type TargetType = (typeof TargetType)[keyof typeof TargetType]
