@@ -2,7 +2,11 @@ import { apiClient } from "@/shared/api/client";
 
 import type { ProgramFormValues } from "@/entities/program/model/program.schema";
 import type { ProgramItem } from "@/entities/program/model/program.types";
-import { mapFormToDb, mapProgram, ProgramFormData } from "@/entities/program/model/program.queries";
+import {
+  mapFormToDb,
+  mapProgram,
+  ProgramFormData,
+} from "@/entities/program/model/program.queries";
 
 import type { Program as ProgramRow } from "@prisma/client";
 
@@ -21,8 +25,22 @@ export const programApi = {
     return mapProgram(data);
   },
   create: async (payload: ProgramFormData): Promise<ProgramItem> => {
-    const dbPayload = mapFormToDb(payload);
-    const { data } = await apiClient.post<ProgramRow>("/admin/programs", dbPayload);
+    const { data } = await apiClient.post<ProgramRow>(
+      "admin/programs",
+      payload
+    );
+
+    return mapProgram(data);
+  },
+  update: async (
+    id: string,
+    payload: ProgramFormData
+  ): Promise<ProgramItem> => {
+    const { data } = await apiClient.put<ProgramRow>(
+      `admin/programs/${id}`,
+      payload
+    );
+
     return mapProgram(data);
   },
   delete: async (id: string): Promise<string> => {

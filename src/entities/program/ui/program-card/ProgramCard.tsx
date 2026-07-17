@@ -13,13 +13,23 @@ import scss from "./ProgramCard.module.scss";
 interface ProgramCardProps {
   card: ProgramItem;
   variant?: "default" | "admin";
+  onDelete?: (id: string) => void;
+
+  deleteStatus?: {
+    isPending: boolean;
+    id?: string;
+  };
 }
 
 export const ProgramCard = ({
   card,
   variant = "default",
+  onDelete,
+  deleteStatus,
 }: ProgramCardProps) => {
   const { id, name, description, duration, price, icon, currency } = card;
+
+  const isDeleting = deleteStatus?.isPending && deleteStatus.id === id;
 
   return (
     <div className={scss["program"]}>
@@ -77,6 +87,8 @@ export const ProgramCard = ({
                 // iconLeft={<Pencil />}
                 iconSize="medium"
                 size="ghost"
+                as="link"
+                to={`/admin/programs/edit/${id}`}
               >
                 <p className="p3">Редактировать</p>
               </Button>
@@ -86,8 +98,12 @@ export const ProgramCard = ({
                 // iconLeft={<Pencil />}
                 iconSize="medium"
                 size="ghost"
+                onClick={() => {
+                  onDelete?.(id);
+                }}
+                disabled={isDeleting}
               >
-                <p className="p3">Удалить</p>
+                <p className="p3">{isDeleting ? "Удаляем..." : "Удалить"}</p>
               </Button>
             </>
           )}

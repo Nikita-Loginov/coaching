@@ -5,17 +5,12 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/shared/lib/prisma";
 
 import { programSchema } from "@/entities/program/model/program.schema";
+import { mapFormToDb } from "@/entities/program/model/program.queries";
 
 export const GET = async () => {
-  const { userId } = await auth();
+  const result = await auth();
 
-  if (!userId) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const programs = await prisma.program.findMany({
-    orderBy: { createdAt: "asc" },
-  });
+  const programs = await prisma.program.findMany();
 
   return NextResponse.json(programs);
 };
@@ -48,7 +43,11 @@ export const POST = async (request: NextRequest) => {
     );
   }
 
-  const program = await prisma.program.create({ data: parsed.data });
+  const dbPayload = mapFormToDb(parsed.data);
+
+  const program = await prisma.program.create({
+    data: dbPayload,
+  });
 
   revalidatePath("/", "layout");
 

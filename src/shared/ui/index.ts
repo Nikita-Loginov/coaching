@@ -18,4 +18,8 @@ export * from "./swiper/Swiper";
 export * from "./scrollTop/ScrollTop";
 export * from "./breadcrumbs/Breadcrumbs";
 export * from "./input/Input";
-export * from './select/Select'
+export * from './select/Select';
+export * from './multi-box/MultiBox';
+export * from './multi-box/ui/multi-box-item/MultiBoxItem'
+export * from './multi-box/ui/multi-box-text-field/MultiBoxTextField'
+export * from './multi-box/ui/multi-box-title-description-field/MultiBoxTitleDescriptionField'

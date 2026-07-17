@@ -17,25 +17,28 @@ export const useCreateProgram = () => {
   });
 };
 
-// export const useUpdateProgram = (id: string) => {
-//   const queryClient = useQueryClient();
+export const useUpdateProgram = () => {
+  const queryClient = useQueryClient();
 
-//   return useMutation({
-//     mutationFn: (data: Omit<ProgramFormValues, "id">) =>
-//       programApi.update(id, data),
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: PROGRAMS_QUERY_KEY });
-//     },
-//   });
-// };
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: ProgramFormData }) =>
+      programApi.update(id, data),
 
-// export const useDeleteProgram = () => {
-//   const queryClient = useQueryClient();
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: PROGRAMS_QUERY_KEY,
+      });
+    },
+  });
+};
 
-//   return useMutation({
-//     mutationFn: (id: string) => programApi.remove(id),
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: PROGRAMS_QUERY_KEY });
-//     },
-//   });
-// };
+export const useDeleteProgram = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (id: string) => programApi.delete(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: PROGRAMS_QUERY_KEY });
+    },
+  });
+};

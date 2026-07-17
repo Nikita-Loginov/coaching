@@ -5,9 +5,11 @@ import { ProgramCard } from "@/entities/program/ui";
 import { useProgramsQuery } from "../../model/useProgramsQuery";
 
 import { AdminItems } from "@/pages/admin-page";
+import { useDeleteProgram } from "../../model/useProgramMutations";
 
 export const ProgramAdminList = () => {
   const { data: programs, isLoading } = useProgramsQuery();
+  const deleteProgram = useDeleteProgram();
 
   if (isLoading) return <p>Загрузка программ...</p>;
 
@@ -25,6 +27,13 @@ export const ProgramAdminList = () => {
                 key={program.id}
                 card={{ ...program }}
                 variant="admin"
+                onDelete={(id) => {
+                  deleteProgram.mutate(id)
+                }}
+                deleteStatus={{
+                  isPending: deleteProgram.isPending,
+                  id: deleteProgram.variables,
+                }}
               />
             );
           })}

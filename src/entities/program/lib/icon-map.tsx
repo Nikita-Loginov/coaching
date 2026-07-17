@@ -5,7 +5,14 @@ export const PROGRAM_ICON_KEYS = ["user", "users", "briefcase"] as const;
 export type ProgramIconKey = (typeof PROGRAM_ICON_KEYS)[number];
 
 export const PROGRAM_ICON_MAP: Record<ProgramIconKey, React.ReactNode> = {
-  user: <User size="32" />,
-  users: <Users size="32" />,
-  briefcase: <Briefcase size="32" />,
+  user: <User />,
+  users: <Users />,
+  briefcase: <Briefcase />,
 };
+
+export const PROGRAM_ICON_LABELS: Record<ProgramIconKey, string> = {
+  user: "Пользователь",
+  users: "Команда",
+  briefcase: "Портфель",
+};
+

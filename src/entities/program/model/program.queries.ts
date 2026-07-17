@@ -4,6 +4,7 @@ import type { ProgramItem, ProgramModule } from "./program.types";
 import type { ProgramIconKey } from "../lib/icon-map";
 
 import type { Program as ProgramRow } from "@prisma/client";
+import { ProgramFormValues } from "./program.schema";
 
 export const mapProgram = (row: ProgramRow): ProgramItem => ({
   id: row.id,
@@ -28,27 +29,34 @@ export const mapProgram = (row: ProgramRow): ProgramItem => ({
   },
 });
 
-export type ProgramFormData = Omit<
-  ProgramItem,
-  "id" | "createdAt" | "updatedAt"
->;
+export type ProgramFormData = ProgramFormValues;
 
 export const mapFormToDb = (formData: ProgramFormData) => ({
+  id: formData.id,
   name: formData.name,
   description: formData.description,
-  sessions: formData.duration.sessions,
-  months: formData.duration.months,
+  sessions: formData.sessions,
+  months: formData.months,
   price: formData.price,
   currency: formData.currency,
   icon: formData.icon,
-  targetAudience: formData.targetAudience,
-  benefits: formData.benefits,
-  includes: formData.includes,
+  targetAudience: formData.targetAudience.map(
+    item => item.value
+  ),
+  benefits: formData.benefits.map(
+    item => item.value
+  ),
+
+  includes: formData.includes.map(
+    item => item.value
+  ),
   curriculum: formData.curriculum,
-  seoTitle: formData.seo.title,
-  seoDescription: formData.seo.description,
-  seoImage: formData.seo.image,
-  seoKeywords: formData.seo.keywords,
+  seoTitle: formData.seoTitle,
+  seoDescription: formData.seoDescription,
+  seoImage: formData.seoImage,
+  seoKeywords: formData.seoKeywords.map(
+    item => item.value
+  ),
 });
 
 export const getPrograms = async (): Promise<ProgramItem[]> => {

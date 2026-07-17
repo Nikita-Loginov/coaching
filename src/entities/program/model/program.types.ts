@@ -20,7 +20,7 @@ export type ProgramItem = {
     title: string;
     description: string;
     image: string;
-    keywords?: string[];
+    keywords: string[];
   };
   // cvetIcon?: string;
 };

@@ -174,3 +174,12 @@ body {
 nextjs-portal {
   display: none !important;
 }
+
+[data-radix-popper-content-wrapper] {
+  z-index: 999;
+  --select-item-padding: 8px 12px;
+
+  @media (min-width: $desktop-breakpoint) {
+    --select-item-padding: #{vw(8)} #{vw(12)};
+  }
+}

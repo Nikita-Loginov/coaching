@@ -4,7 +4,11 @@ import { revalidatePath } from "next/cache";
 
 import { prisma } from "@/shared/lib/prisma";
 
-import { programUpdateSchema } from "@/entities/program/model/program.schema";
+import {
+  programSchema,
+  programUpdateSchema,
+} from "@/entities/program/model/program.schema";
+import { mapFormToDb } from "@/entities/program/model/program.queries";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -27,8 +31,7 @@ export const GET = async (_request: NextRequest, { params }: RouteParams) => {
 
   return NextResponse.json(program);
 };
-
-export const PATCH = async (request: NextRequest, { params }: RouteParams) => {
+export const PUT = async (request: NextRequest, { params }: RouteParams) => {
   const { userId } = await auth();
 
   if (!userId) {
@@ -38,18 +41,30 @@ export const PATCH = async (request: NextRequest, { params }: RouteParams) => {
   const { id } = await params;
 
   const body = await request.json();
+
   const parsed = programUpdateSchema.safeParse(body);
 
   if (!parsed.success) {
     return NextResponse.json(
-      { error: parsed.error.flatten() },
-      { status: 400 }
+      {
+        error: parsed.error.flatten(),
+      },
+      {
+        status: 400,
+      }
     );
   }
 
+  const dbPayload = mapFormToDb({
+    ...parsed.data,
+    id,
+  });
+
   const program = await prisma.program.update({
-    where: { id },
-    data: parsed.data,
+    where: {
+      id,
+    },
+    data: dbPayload,
   });
 
   revalidatePath("/", "layout");

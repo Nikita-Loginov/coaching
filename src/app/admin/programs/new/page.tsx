@@ -1,5 +1,5 @@
 import { ProgramAdminForm } from "@/features/program/ui";
 
 export default function AdminProgramCreatePage() {
-    return <ProgramAdminForm />
+    return <ProgramAdminForm mode="create"/>
 }

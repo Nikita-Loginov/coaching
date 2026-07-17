@@ -1,4 +1,3 @@
-// shared/api/client.ts
 import axios, { AxiosInstance } from "axios";
 import { API_CONFIG } from "./config";
 

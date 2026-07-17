@@ -8,6 +8,8 @@
   --program-footer-gap: 16px;
   --program-btns-gap: 10px;
   --program-hover-transform: -4px;
+  --program-icon-size: 32px;
+  --program-content-border-width: 1px;
 
   display: flex;
   flex-direction: column;
@@ -30,6 +32,11 @@
 
   &__icon {
     color: var(--primary-color-100);
+
+    svg {
+      width: var(--program-icon-size);
+      height: var(--program-icon-size);
+    }
   }
 
   &__block {
@@ -45,7 +52,8 @@
 
     & > *:not(:last-child) {
       padding-bottom: var(--program-content-gap);
-      border-bottom: 1px solid var(--primary-color-115);
+      border-bottom: var(--program-content-border-width) solid
+        var(--primary-color-115);
     }
   }
 
@@ -77,5 +85,7 @@
     --program-footer-gap: #{vw(16)};
     --program-btns-gap: #{vw(10)};
     --program-hover-transform: #{vw(-4)};
+    --program-icon-size: #{vw(32)};
+    --program-content-border-width: #{vw(1)};
   }
 }
