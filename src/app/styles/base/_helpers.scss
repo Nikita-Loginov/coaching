@@ -43,3 +43,15 @@
   visibility: hidden;
   border: 0;
 }
+
+@mixin scroll-none {
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  &::-webkit-scrollbar-track {
+  }
+
+  &::-webkit-scrollbar-thumb {
+  }
+}

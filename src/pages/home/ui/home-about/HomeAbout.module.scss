@@ -8,7 +8,12 @@
   --home-about-img-textbox-gap: 10px;
   --home-about-img-textbox-max-width: 240px;
   --home-about-border-width: 1px;
-  --home-about-items-gap: 40px;
+  --home-about-items-gap: #{calculate-clamp(
+    20px,
+    40px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
   --home-about-item-gap: 8px;
   --home-about-footer-gap: 16px;
   --home-about-footer-items-gap: 32px;
@@ -138,5 +143,46 @@
     --home-about-footer-gap: #{vw(16)};
     --home-about-footer-items-gap: #{vw(32)};
     --home-about-gap-blocks: #{vw(40)};
+  }
+
+  @media (max-width: $lg-breakpoint) {
+    --home-about-footer-items-gap: 16px;
+    --home-about-img-padding-left: 20px;
+
+    &__footer-items {
+      grid-template-columns: repeat(2, 1fr);
+
+      & > *:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  
+
+  @media (max-width: $lg-breakpoint) {
+    &__content {
+      display: none;
+    }
+
+    &__inner-block {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+   
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    &__items {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    &__content {
+      display: flex;
+    }
+
+    
   }
 }

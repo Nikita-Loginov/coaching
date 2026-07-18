@@ -22,8 +22,20 @@ export const TeamsSection = () => {
         >
           <Swiper
             config={{
-              spaceBetween: 32,
-              slidesPerView: 3.5,
+              spaceBetween: 16,
+              slidesPerView: 1,
+              breakpoints: {
+                1023: {
+                  slidesPerView: 3.5,
+                  spaceBetween: 32,
+                },
+                767: {
+                  slidesPerView: 2.5,
+                },
+                600: {
+                  slidesPerView: 1.5,
+                }
+              }
             }}
             items={items}
             pagination

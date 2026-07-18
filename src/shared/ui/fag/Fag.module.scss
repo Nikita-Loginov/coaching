@@ -1,4 +1,8 @@
 .fag {
   max-width: 70%;
   margin: 0 auto;
+
+  @media (max-width: $tablet-breakpoint) {
+    max-width: 100%;
+  }
 }

@@ -1,7 +1,7 @@
 .team-card {
   --team-card-padding: 20px 22px;
   --team-card-content-gap: 10px;
-  --team-card-min-height: max(60dvh, 400px);
+  // --team-card-min-height: max(60dvh, 400px);
   --team-card-img-scale: 1.05;
 
   position: relative;
@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--team-card-padding);
+  aspect-ratio: 7 / 9;
 
   &:before {
     position: absolute;
@@ -61,7 +62,7 @@
   @media (min-width: $desktop-breakpoint) {
     --team-card-padding: #{vw(20)} #{vw(22)};
     --team-card-content-gap: #{vw(10)};
-    --team-card-min-height: max(60dvh, #{vw(400)});
+    // --team-card-min-height: max(60dvh, #{vw(400)});
     --team-card-img-scale: 1.05;
   }
 }

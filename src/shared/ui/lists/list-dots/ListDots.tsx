@@ -6,17 +6,20 @@ interface ListsDotsProps {
   direction?: "row" | "column";
   theme?: "primary" | "secondary" | 'primary-two';
   items: React.ReactNode[];
+  className?: string;
 }
 
 export const ListsDots = ({
   items,
   direction = "row",
   theme = "primary",
+  className
 }: ListsDotsProps) => {
   const listDotsClassName = classNames(
     scss["list-dots"],
     scss[`list-dots--theme-${theme}`],
-    scss[`list-dots--direction-${direction}`]
+    scss[`list-dots--direction-${direction}`],
+    className
   );
 
   if (direction === "column")

@@ -26,6 +26,11 @@ body {
 
   &.open-decor {
     overflow: hidden;
+
+    &:before {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   .load {
@@ -51,7 +56,7 @@ body {
     position: fixed;
     inset: 0;
     content: "";
-    z-index: 1000;
+    z-index: 100;
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-base);

@@ -1,13 +1,69 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
 
 import { MENU_ITEMS } from "./config/menu-items.config";
+
+import { Button } from "../button/Button/Button";
 
 import scss from "./Menu.module.scss";
 
 export const Menu = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const isMobile = () => window.innerWidth <= 1023;
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("open-decor");
+    }
+
+    return () => {
+      document.body.classList.remove("open-decor");
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!menuRef.current) return;
+
+      if (!menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <div className={scss["menu"]}>
-      <div className={scss["menu__conetnt"]}>
+    <div
+      className={classNames(scss["menu"], isOpen ? scss["active"] : "")}
+      ref={menuRef}
+    >
+      <button
+        type="button"
+        aria-label="open menu"
+        className={scss["menu__burger"]}
+        onClick={() => {
+          setIsOpen((prev) => {
+            return !prev;
+          });
+        }}
+      >
+        <span></span>
+      </button>
+
+      <div className={scss["menu__content"]}>
         <nav className={scss["menu__nav"]}>
           <ul className={scss["menu__list"]}>
             {MENU_ITEMS.map((menu_item) => {
@@ -21,13 +77,21 @@ export const Menu = () => {
                     aria-label={`Перейти к блоку ${label.toLocaleLowerCase()}`}
                     className={"link"}
                   >
-                    <p className="p3">{label}</p>
+                    <p className={classNames(scss['menu__link-text'])}>{label}</p>
                   </Link>
                 </li>
               );
             })}
           </ul>
         </nav>
+
+        <div className={scss["menu__mobile-details"]}>
+          <div className={scss["menu__btns"]}>
+            <Button theme="secondary" size="small">
+              <p className="p3">Связаться</p>
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

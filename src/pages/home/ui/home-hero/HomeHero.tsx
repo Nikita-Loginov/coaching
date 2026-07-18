@@ -49,6 +49,7 @@ export const HomeHero = () => {
                 </p>,
                 <p className="p4">ICF сертификат</p>,
               ]}
+              className={scss['home-hero__list']}
             />
           </div>
         </div>

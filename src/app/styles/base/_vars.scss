@@ -9,7 +9,7 @@
   --gray-color-300: #aaaaaa;
   --gray-color-400: #2a2624;
   --gray-color-500: #1a181780;
-  --gray-color-600: #2D2A27;
+  --gray-color-600: #2d2a27;
 
   --dark-color-0: #000000;
   --dark-color-100: #0a0311;
@@ -37,14 +37,39 @@
   --weight-font-lg: 600;
   --weight-font-xl: 700;
 
-  --font-size-xxl: 64px;
-  --font-size-xl: 40px;
+  --font-size-xxl: #{calculate-clamp(
+      36px,
+      64px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
+  --font-size-xl: #{calculate-clamp(
+      28px,
+      40px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
   --font-size-lg: 32px;
   --font-size-md: 28px;
   --font-size-base: 20px;
-  --font-size-sm: 16px;
-  --font-size-xs: 14px;
-  --font-size-xxs: 12px;
+  --font-size-sm: #{calculate-clamp(
+      14px,
+      16px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
+  --font-size-xs: #{calculate-clamp(
+      12px,
+      14px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
+  --font-size-xxs: #{calculate-clamp(
+      10px,
+      12px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
 
   --line-height-base: 1;
   --line-height-tighter: 1.2;
@@ -67,8 +92,18 @@
   --radius-max: 100000px;
 
   --icon-sm: 16px;
-  --icon-base: 20px;
-  --icon-md: 24px;
+  --icon-base: #{calculate-clamp(
+    16px,
+    20px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
+  --icon-md: #{calculate-clamp(
+    20px,
+    24px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
 
   --transition-base: 0.3s;
 
@@ -85,7 +120,12 @@
 
   --calback-header-height: 62px;
 
-  --gap-blocks: 120px;
+  --gap-blocks: #{calculate-clamp(
+      60px,
+      120px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
 
   --header-padding-top: 20px;
 

@@ -1,6 +1,11 @@
 .program {
   --program-gap: 24px;
-  --program-padding: 36px;
+  --program-padding: #{calculate-clamp(
+    32px,
+    36px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
   --program-border-width: 1px;
   --program-top-gap: 16px;
   --program-block-gap: 12px;

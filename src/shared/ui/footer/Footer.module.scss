@@ -1,6 +1,11 @@
 .footer {
   --footer-padding: 36px 0;
-  --footer-inner-gap: 32px;
+  --footer-inner-gap: #{calculate-clamp(
+    20px,
+    32px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
   --footer-block-gap: 12px;
 
   padding: var(--footer-padding);
@@ -39,5 +44,17 @@
     --footer-padding: #{vw(36)} 0;
     --footer-inner-gap: #{vw(32)};
     --footer-block-gap: #{vw(12)};
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    &__inner {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__block {
+      align-items: center;
+      text-align: center;
+    }
   }
 }
