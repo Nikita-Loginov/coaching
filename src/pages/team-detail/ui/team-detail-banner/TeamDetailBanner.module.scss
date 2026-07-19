@@ -1,7 +1,12 @@
 .team-detail-banner {
   --team-detail-banner-gap: 16px;
   --team-detail-banner-border-width: 1px;
-  --team-detail-banner-padding: 32px;
+  --team-detail-banner-padding: #{calculate-clamp(
+    24px,
+    32px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
   --team-detail-banner-top-gap: 12px;
   --team-detail-banner-footer-gap: 12px;
   --team-detail-banner-btns-gap: 4px;

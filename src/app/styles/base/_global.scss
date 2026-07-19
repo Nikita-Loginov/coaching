@@ -3,7 +3,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--gap-blocks);
+  scroll-padding-top: calc(var(--gap-blocks) + var(--header-height, var(--calback-header-height)));
 }
 
 html,

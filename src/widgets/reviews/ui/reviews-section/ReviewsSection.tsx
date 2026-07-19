@@ -1,4 +1,4 @@
-import { Container, TopInner } from "@/shared/ui";
+import { Container, TopInner, Swiper } from "@/shared/ui";
 
 import { ReviewCard } from "@/entities/review/ui";
 
@@ -23,6 +23,10 @@ export const ReviewsSection = ({
     (review) => review.targetType === targetType
   );
 
+  const reviewsItems = reviews.map((review) => {
+      return <ReviewCard key={review.id} review={review} />;
+    });
+
   if (reviews.length < 1) return;
 
   return (
@@ -34,6 +38,27 @@ export const ReviewsSection = ({
               return <ReviewCard review={review} key={review.id} />;
             })}
           </div>
+
+          {/* <Swiper
+            config={{
+              spaceBetween: 24,
+              slidesPerView: 3,
+              // breakpoints: {
+              //   1023: {
+              //     slidesPerView: 3.5,
+              //     spaceBetween: 32,
+              //   },
+              //   767: {
+              //     slidesPerView: 2.5,
+              //   },
+              //   600: {
+              //     slidesPerView: 1.5,
+              //   }
+              // }
+            }}
+            items={reviewsItems}
+            pagination
+          ></Swiper> */}
         </TopInner>
       </Container>
     </section>

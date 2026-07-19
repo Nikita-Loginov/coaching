@@ -8,11 +8,12 @@ export const MENU_ITEMS = [
     to: "/#programs",
   },
   {
+    label: "Команда",
+    to: "/#teams",
+  },
+  {
     label: "Fag",
     to: "/#fag",
   },
-  {
-    label: "Контакты",
-    to: "/#contact",
-  },
+  
 ];

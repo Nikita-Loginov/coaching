@@ -1,5 +1,10 @@
 .program-detail-hero {
-  --program-detail-hero-inner-gap: 64px;
+  --program-detail-hero-inner-gap: #{calculate-clamp(
+    40px,
+    64px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
 
   width: 100%;
 
@@ -12,4 +17,6 @@
   @media (min-width: $desktop-breakpoint) {
     --program-detail-hero-inner-gap: #{vw(64)};
   }
+
+  
 }

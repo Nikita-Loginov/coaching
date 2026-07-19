@@ -17,6 +17,7 @@
   gap: var(--review-card-gap);
   border-radius: var(--radius-xl);
   line-height: var(--line-height-relaxed);
+  height: 100%;
 
   &__top {
     display: flex;

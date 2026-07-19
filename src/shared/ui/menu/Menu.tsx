@@ -76,6 +76,9 @@ export const Menu = () => {
                     title={label}
                     aria-label={`Перейти к блоку ${label.toLocaleLowerCase()}`}
                     className={"link"}
+                    onClick={() => {
+                      setIsOpen(false)
+                    }}
                   >
                     <p className={classNames(scss['menu__link-text'])}>{label}</p>
                   </Link>

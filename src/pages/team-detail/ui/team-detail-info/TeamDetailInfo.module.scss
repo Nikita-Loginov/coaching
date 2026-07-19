@@ -1,5 +1,10 @@
 .team-detail-info {
-  --team-detail-info-gap: 64px;
+  --team-detail-info-gap: #{calculate-clamp(
+    40px,
+    64px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
   --team-detail-info-content-gap: 48px;
   --team-detail-info-content-info-gap: 40px;
   --team-detail-info-textbox-gap: 12px;
@@ -37,6 +42,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--team-detail-info-block-gap);
+    line-height: var(--line-height-relaxed);
 
     &--small {
       gap: var(--team-detail-info-block-small-gap);
@@ -72,5 +78,12 @@
     --team-detail-info-block-small-gap: #{vw(14)};
     --team-detail-info-tags-gap: #{vw(10)};
     --team-detail-info-content-block-gap: #{vw(28)};
+  }
+
+  @media (max-width: $lg-breakpoint) {
+    --team-detail-info-content-info-gap: 25px;
+    --team-detail-info-content-block-gap: 20px;
+
+    flex-direction: column;
   }
 }

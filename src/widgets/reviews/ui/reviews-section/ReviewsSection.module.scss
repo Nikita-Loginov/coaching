@@ -1,5 +1,10 @@
 .reviews {
-  --reviews-items-gap: 24px;
+  --reviews-items-gap: #{calculate-clamp(
+    16px,
+    24px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
 
   width: 100%;
 
@@ -11,5 +16,22 @@
 
   @media (min-width: $desktop-breakpoint) {
     --reviews-items-gap: #{vw(24)};
+  }
+
+  @media (max-width: $lg-breakpoint) {
+    &__items {
+      grid-template-columns: repeat(2, 1fr);
+
+      & > *:nth-child(3n) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    &__items {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

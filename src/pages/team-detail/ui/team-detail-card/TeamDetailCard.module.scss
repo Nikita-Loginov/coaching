@@ -63,4 +63,13 @@
     --team-detail-card-img-border-width: #{vw(1)};
     --team-detail-card-img-scale: 1.02;
   }
+
+  @media (max-width: $lg-breakpoint) {
+    --team-detail-card-block-gap: 20px;
+    --team-detail-card-max-width: 100%;
+
+    &__img {
+      display: none;
+    }
+  }
 }

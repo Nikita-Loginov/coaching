@@ -1,5 +1,10 @@
 .program-detail-info {
-  --program-detail-info-gap: 64px;
+  --program-detail-info-gap: #{calculate-clamp(
+    40px,
+    64px,
+    $desktop-breakpoint,
+    $lg-breakpoint
+  )};
   --program-detail-info-content-gap: 48px;
   --program-detail-info-block-gap: 16px;
   --program-detail-info-block-big-gap: 24px;
@@ -48,5 +53,10 @@
     --program-detail-info-block-gap: #{vw(16)};
     --program-detail-info-block-big-gap: #{vw(24)};
     --program-detail-info-info-gap: #{vw(10)};
+  }
+
+  @media (max-width: $lg-breakpoint) {
+    display: flex;
+    flex-direction: column;
   }
 }

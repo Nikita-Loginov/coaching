@@ -14,7 +14,7 @@ export const TeamsSection = () => {
   });
 
   return (
-    <section className={scss["teams"]}>
+    <section className={scss["teams"]} id="teams">
       <Container>
         <TopInner
           title="Профессионалы своего дела"

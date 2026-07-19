@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--program-detail-top-gap);
+  line-height: var(--line-height-relaxed);
 
   @media (min-width: $desktop-breakpoint) {
     --program-detail-top-gap: #{vw(16)};

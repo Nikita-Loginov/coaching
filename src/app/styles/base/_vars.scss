@@ -93,17 +93,12 @@
 
   --icon-sm: 16px;
   --icon-base: #{calculate-clamp(
-    16px,
-    20px,
-    $desktop-breakpoint,
-    $lg-breakpoint
-  )};
-  --icon-md: #{calculate-clamp(
-    20px,
-    24px,
-    $desktop-breakpoint,
-    $lg-breakpoint
-  )};
+      16px,
+      20px,
+      $desktop-breakpoint,
+      $lg-breakpoint
+    )};
+  --icon-md: #{calculate-clamp(20px, 24px, $desktop-breakpoint, $lg-breakpoint)};
 
   --transition-base: 0.3s;
 
@@ -172,4 +167,7 @@
 }
 
 @media (max-width: $tablet-breakpoint) {
+  :root {
+    --main-padding-top: 40px;
+  }
 }
