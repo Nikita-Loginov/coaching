@@ -2,7 +2,7 @@ import { apiClient } from "@/shared/api/client";
 import type { TeamFormValues } from "@/entities/team/model/team.schema";
 import type { TeamItem } from "@/entities/team/model/team.types";
 
-type TeamRow = any;
+type TeamRow = any
 
 export type TeamRecord = Omit<TeamFormValues, "city" | "telegram" | "vk"> & {
   city: string | null;
