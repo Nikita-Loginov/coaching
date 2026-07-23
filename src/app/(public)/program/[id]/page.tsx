@@ -1,7 +1,7 @@
 import Script from "next/script";
 import { notFound } from "next/navigation";
 
-import { ProgramDetailPage } from "@/pages/program-detail";
+import { ProgramDetailPage } from "@/shared/ui/pages/program-detail";
 
 import { getProgramById } from "@/entities/program/model/program.queries";
 

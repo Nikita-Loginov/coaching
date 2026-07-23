@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 import { MENU_ITEMS } from "./config/menu-items.config";
 
-import { Button } from "../button/Button/Button";
+import { ContactMessageBtn } from "@/features/contact-message/ui";
 
 import scss from "./Menu.module.scss";
 
@@ -90,9 +90,9 @@ export const Menu = () => {
 
         <div className={scss["menu__mobile-details"]}>
           <div className={scss["menu__btns"]}>
-            <Button theme="secondary" size="small">
+            <ContactMessageBtn theme="secondary" size="small">
               <p className="p3">Связаться</p>
-            </Button>
+            </ContactMessageBtn>
           </div>
         </div>
       </div>

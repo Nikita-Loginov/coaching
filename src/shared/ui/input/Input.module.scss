@@ -29,8 +29,8 @@
   &--error {
     .input-box {
       &__content {
-        border-color: var(--red-color-100);
-        color: var(--red-color-100);
+        border-color: var(--red-color-200);
+        color: var(--red-color-200);
       }
     }
   }
@@ -88,7 +88,7 @@
 
   &__error {
     text-align: left;
-    color: var(--red-color-100);
+    color: var(--red-color-200);
   }
 
   &__icon {

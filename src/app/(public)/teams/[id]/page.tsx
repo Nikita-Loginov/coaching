@@ -1,4 +1,4 @@
-import { TeamDetailPage } from "@/pages/team-detail";
+import { TeamDetailPage } from "@/shared/ui/pages/team-detail";
 
 interface TeamDetaliProps {
   params: Promise<{

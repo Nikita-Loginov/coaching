@@ -49,24 +49,24 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
 
   const defaultValues = useMemo<ProgramFormValues>(
     () => ({
-      id: program?.id || "",
-      name: program?.name || "",
-      description: program?.description || "",
-      sessions: program?.duration?.sessions ?? 1,
-      months: program?.duration?.months ?? 1,
-      price: program?.price || "",
-      currency: (program?.currency as CurrencyType) || "rub",
-      icon: (program?.icon as ProgramIconKey) || "user",
-      targetAudience: program?.targetAudience.map((value) => ({ value })) ?? [],
-      benefits: program?.benefits.map((value) => ({ value })) ?? [],
-      includes: program?.includes.map((value) => ({ value })) ?? [],
-      curriculum: program?.curriculum || [],
-      seoTitle: program?.seo?.title || "",
-      seoDescription: program?.seo?.description || "",
-      seoImage: program?.seo?.image || "",
-      seoKeywords: program?.seo.keywords.map((value) => ({ value })) ?? [],
+      id: "",
+      name: "",
+      description: "",
+      sessions: 1,
+      months: 1,
+      price: "",
+      currency: "rub",
+      icon: "user",
+      targetAudience: [],
+      benefits: [],
+      includes: [],
+      curriculum: [],
+      seoTitle: "",
+      seoDescription: "",
+      seoImage: "",
+      seoKeywords: [],
     }),
-    [program]
+    []
   );
 
   const {
@@ -81,6 +81,29 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
     resolver: zodResolver(programSchema),
     defaultValues,
   });
+
+  useEffect(() => {
+    if (program && isEdit) {
+      reset({
+        id: program.id,
+        name: program.name,
+        description: program.description,
+        sessions: program.duration.sessions,
+        months: program.duration.months,
+        price: program.price,
+        currency: program.currency as CurrencyType,
+        icon: program.icon as ProgramIconKey,
+        targetAudience: program.targetAudience.map((value) => ({ value })),
+        benefits: program.benefits.map((value) => ({ value })),
+        includes: program.includes.map((value) => ({ value })),
+        curriculum: program.curriculum,
+        seoTitle: program.seo.title,
+        seoDescription: program.seo.description,
+        seoImage: program.seo.image,
+        seoKeywords: program.seo.keywords.map((value) => ({ value })),
+      });
+    }
+  }, [program, isEdit, reset]);
 
   const targetAudienceField = useFieldArray({
     control,
@@ -132,11 +155,11 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
     name: "seoKeywords",
   });
 
-  useEffect(() => {
-    if (program && isEdit) {
-      reset(defaultValues);
-    }
-  }, [program, isEdit, setValue]);
+  // useEffect(() => {
+  //   if (program && isEdit) {
+  //     reset(defaultValues);
+  //   }
+  // }, [program, isEdit, setValue]);
 
   const onSubmit = async (data: ProgramFormInput) => {
     const parsed = programSchema.parse(data);
@@ -160,6 +183,8 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
   };
 
   if (isEdit && isLoading) return <p className="p2">Загрузка программы...</p>;
+  
+
 
   return (
     <form className={scss["admin-form"]} onSubmit={handleSubmit(onSubmit)}>
@@ -527,8 +552,8 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
             {isSubmitting
               ? "Сохранение..."
               : mode === "create"
-              ? "Создать"
-              : "Сохранить"}
+                ? "Создать"
+                : "Сохранить"}
           </p>
         </Button>
       </div>

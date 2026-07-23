@@ -1,4 +1,4 @@
-import { AdminContent, AdminItems } from "@/pages/admin-page";
+import { AdminContent, AdminItems } from "@/shared/ui/pages/admin-page";
 
 import { ProgramAdminList } from "@/features/program/ui";
 

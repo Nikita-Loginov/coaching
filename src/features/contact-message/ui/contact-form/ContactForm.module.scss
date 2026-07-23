@@ -1,0 +1,43 @@
+.contact-form {
+  --contact-form-gap: 32px;
+  --contact-form-top-gap: 8px;
+  --contact-form-inputs-gap: 24px;
+  --contact-form-footer-gap: 16px;
+  --contact-form-btns-gap: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-form-gap);
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contact-form-top-gap);
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contact-form-inputs-gap);
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contact-form-footer-gap);
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contact-form-btns-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --contact-form-gap: #{vw(32)};
+    --contact-form-top-gap: #{vw(8)};
+    --contact-form-inputs-gap: #{vw(24)};
+    --contact-form-footer-gap: #{vw(16)};
+    --contact-form-btns-gap: #{vw(20)};
+  }
+}

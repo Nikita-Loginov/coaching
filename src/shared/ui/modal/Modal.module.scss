@@ -1,0 +1,111 @@
+.modal {
+  --modal-padding: 20px;
+  --modal-inner-padding: #{calculate-clamp(
+      24px,
+      32px,
+      $lg-breakpoint,
+      $tablet-breakpoint
+    )};
+  --modal-inner-border-radius: var(--radius-3xl);
+  --modal-close-size: #{calculate-clamp(
+      24px,
+      24px,
+      $lg-breakpoint,
+      $tablet-breakpoint
+    )};
+  --modal-close-icon-size: 100%;
+  --modal-close-top: 8px;
+  --modal-close-right: 8px;
+  --modal-max-width: 448px;
+  --modal-max-height: 80dvh;
+
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  padding: var(--modal-padding) var(--container-inline-padding);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  line-height: var(--line-height-relaxed);
+
+  &__inner {
+    max-width: var(--modal-max-width);
+    width: 100%;
+    background-color: var(--gray-color-600);
+    border: 1px solid var(--primary-color-115);
+    padding: var(--modal-inner-padding);
+    border-radius: var(--modal-inner-border-radius);
+    color: var(--gray-color-0);
+    height: fit-content;
+    margin: auto 0;
+    position: relative;
+    max-height: var(--modal-max-height);
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include scroll-none;
+  }
+
+  &__content {
+    // max-height: 50dvh;
+    // @extend %scroll-none;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    // padding-inline: 10px;
+  }
+
+  &__close {
+    background-color: transparent;
+    width: var(--modal-close-size);
+    height: var(--modal-close-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gray-color-0);
+    border-radius: var(--radius-5xl);
+    transition: background-color var(--transition-base);
+    position: absolute;
+    right: var(--modal-close-right);
+    top: var(--modal-close-top);
+
+    svg path {
+      fill: var(--gray-color-0);
+      transition: fill var(--transition-base);
+    }
+
+    svg,
+    img {
+      width: var(--modal-close-icon-size);
+      height: var(--modal-close-icon-size);
+    }
+
+    // &:hover {
+    //   background-color: var(--gray-color-0);
+
+    //   svg path {
+    //     fill: var(--dark-color-0);
+    //   }
+    // }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --modal-padding: #{vw(20)};
+    --modal-inner-padding: #{vw(24)} #{vw(32)};
+    --modal-close-size: #{vw(24)};
+    --modal-close-top: #{vw(8)};
+    --modal-close-right: #{vw(8)};
+    --modal-max-width: #{vw(448)};
+    --modal-inner-border-width: #{vw(1)};
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    --modal-padding: 4px;
+
+    padding: var(--modal-padding);
+
+    &__inner {
+      max-height: calc(100dvh - var(--modal-padding) * 2);
+    }
+  }
+}

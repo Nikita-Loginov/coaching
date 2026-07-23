@@ -1,4 +1,4 @@
-import { getUserEmail } from "@/shared/lib/auth";
+import { getUserEmail } from "@/shared/lib/auth.server";
 
 import { Breadcrumbs } from "@/shared/ui";
 

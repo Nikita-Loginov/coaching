@@ -55,11 +55,6 @@ export const Select = ({
                   value={item.value}
                   className={scss["select__item"]}
                 >
-                  {/* <SelectPrimitive.ItemIndicator
-            className={scss["select__item-indicator"]}
-          >
-            <Check size={16} />
-          </SelectPrimitive.ItemIndicator> */}
                   <SelectPrimitive.ItemText>
                     {item.label}
                   </SelectPrimitive.ItemText>

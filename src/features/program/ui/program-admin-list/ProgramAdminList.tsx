@@ -4,7 +4,7 @@ import { ProgramCard } from "@/entities/program/ui";
 
 import { useProgramsQuery } from "../../model/useProgramsQuery";
 
-import { AdminItems } from "@/pages/admin-page";
+import { AdminItems } from "@/shared/ui/pages/admin-page";
 import { useDeleteProgram } from "../../model/useProgramMutations";
 
 export const ProgramAdminList = () => {

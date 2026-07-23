@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
+
+import { ModalProvider } from "@/shared/providers/ModalProvider/ModalProvider";
 
 import { ScrollTop } from "@/shared/ui";
 
@@ -13,6 +17,7 @@ import {
 } from "@/shared/config/seo";
 
 import "@styles/global.scss";
+
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -46,9 +51,17 @@ export default function RootLayout({
     >
       <body>
         <ClerkProvider>
-          <div className="wrapper">{children}</div>
+          <ModalProvider>
+            <div className="wrapper">{children}</div>
 
-          <ScrollTop />
+            {/* <Suspense fallback={null}>
+              <ScrollTop />
+            </Suspense> */}
+
+            <div id="modal-root"></div>
+          </ModalProvider>
+
+          <Toaster position="top-right" />
 
           <Script
             id="schema"

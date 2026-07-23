@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import scss from "./Button.module.scss";
 
-interface ButtonProps {
+export interface ButtonProps {
   children?: React.ReactNode;
   typeBtn?: "submit" | "reset" | "button";
   iconLeft?: React.ReactNode;
