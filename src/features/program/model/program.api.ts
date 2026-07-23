@@ -9,7 +9,8 @@ import {
 } from "@/entities/program/model/program.queries";
 import { Prisma } from "@prisma/client";
 
-type ProgramRow = Prisma.ProgramGetPayload<Prisma.ProgramDefaultArgs>;
+import type { ProgramRow } from "@/entities/program/model/program.types";
+
 
 export type ProgramRecord = ProgramFormValues & {
   createdAt: string;
@@ -25,7 +26,7 @@ export const programApi = {
     const { data } = await apiClient.get<ProgramRow>(`admin/programs/${id}`);
     return mapProgram(data);
   },
-  create: async (payload: ProgramFormData): Promise<ProgramItem> => {
+  create: async (payload: ProgramFormData): Promise<ProgramRow> => {
     const { data } = await apiClient.post<ProgramRow>(
       "admin/programs",
       payload
@@ -37,7 +38,7 @@ export const programApi = {
     id: string,
     payload: ProgramFormData
   ): Promise<ProgramItem> => {
-    const { data } = await apiClient.put<ProgramRow>(
+    const { data } = await apiClient.put<ProgramItem>(
       `admin/programs/${id}`,
       payload
     );
