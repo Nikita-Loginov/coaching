@@ -9,7 +9,7 @@ import {
 } from "@/entities/program/model/program.queries";
 import { Prisma } from "@prisma/client";
 
-type ProgramRow = Prisma.ProgramGetPayload<{}>;
+type ProgramRow = Prisma.ProgramGetPayload<Prisma.ProgramDefaultArgs>;
 
 export type ProgramRecord = ProgramFormValues & {
   createdAt: string;

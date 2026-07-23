@@ -6,7 +6,7 @@ import type { ProgramIconKey } from "../lib/icon-map";
 import { ProgramFormValues } from "./program.schema";
 import { Prisma } from "@prisma/client";
 
-type ProgramRow = Prisma.ProgramGetPayload<{}>;
+type ProgramRow = Prisma.ProgramGetPayload<Prisma.ProgramDefaultArgs>;
 
 export const mapProgram = (row: ProgramRow): ProgramItem => ({
   id: row.id,
