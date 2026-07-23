@@ -3,8 +3,10 @@ import { prisma } from "@/shared/lib/prisma";
 import type { ProgramItem, ProgramModule } from "./program.types";
 import type { ProgramIconKey } from "../lib/icon-map";
 
-import type { Program as ProgramRow } from "@prisma/client";
 import { ProgramFormValues } from "./program.schema";
+import { Prisma } from "@prisma/client";
+
+type ProgramRow = Prisma.ProgramGetPayload<{}>;
 
 export const mapProgram = (row: ProgramRow): ProgramItem => ({
   id: row.id,

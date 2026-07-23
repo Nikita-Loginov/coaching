@@ -7,8 +7,9 @@ import {
   mapProgram,
   ProgramFormData,
 } from "@/entities/program/model/program.queries";
+import { Prisma } from "@prisma/client";
 
-import type { Program as ProgramRow } from "@prisma/client";
+type ProgramRow = Prisma.ProgramGetPayload<{}>;
 
 export type ProgramRecord = ProgramFormValues & {
   createdAt: string;
