@@ -1,9 +1,8 @@
 import { prisma } from "@/shared/lib/prisma";
 
 import type { TeamItem } from "./team.types";
-import { Prisma } from "@prisma/client";
 
-type TeamRow = Prisma.TeamGetPayload<{}>;
+type TeamRow = any;
 
 const mapTeam = (row: TeamRow): TeamItem => ({
   id: row.id,

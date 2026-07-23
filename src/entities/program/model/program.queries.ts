@@ -4,7 +4,6 @@ import type { ProgramItem, ProgramModule } from "./program.types";
 import type { ProgramIconKey } from "../lib/icon-map";
 
 import { ProgramFormValues } from "./program.schema";
-import { Prisma } from "@prisma/client";
 
 import { ProgramRow } from "./program.types";
 

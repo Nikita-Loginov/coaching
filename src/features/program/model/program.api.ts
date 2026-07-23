@@ -7,7 +7,6 @@ import {
   mapProgram,
   ProgramFormData,
 } from "@/entities/program/model/program.queries";
-import { Prisma } from "@prisma/client";
 
 import type { ProgramRow } from "@/entities/program/model/program.types";
 

@@ -30,23 +30,25 @@ export type ProgramModule = {
   description: string;
 };
 
-export type ProgramRow = {
-  id: string;
-  name: string;
-  description: string;
-  sessions: number;
-  months: number;
-  price: string;
-  currency: 'rub' | 'eu';
-  icon: string;
-  targetAudience: string[];
-  benefits: string[];
-  includes: string[];
-  curriculum: ProgramModule[];
-  seoTitle: string;
-  seoDescription: string;
-  seoImage: string;
-  seoKeywords: string[];
-  createdAt: Date;
-  updatedAt: Date;
-};
+// export type ProgramRow = {
+//   id: string;
+//   name: string;
+//   description: string;
+//   sessions: number;
+//   months: number;
+//   price: string;
+//   currency: 'rub' | 'eu';
+//   icon: string;
+//   targetAudience: string[];
+//   benefits: string[];
+//   includes: string[];
+//   curriculum: ProgramModule[];
+//   seoTitle: string;
+//   seoDescription: string;
+//   seoImage: string;
+//   seoKeywords: string[];
+//   createdAt: Date;
+//   updatedAt: Date;
+// };
+
+export type ProgramRow = any
