@@ -26,6 +26,7 @@ export const Select = ({
   label,
   className,
 }: SelectProps) => {
+  // console.log(value, 'value')
   return (
     <SelectPrimitive.Root value={value} onValueChange={onValueChange}>
       <div className={scss["select"]}>

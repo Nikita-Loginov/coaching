@@ -161,6 +161,8 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
   //   }
   // }, [program, isEdit, setValue]);
 
+  console.log(program, 'program')
+
   const onSubmit = async (data: ProgramFormInput) => {
     const parsed = programSchema.parse(data);
 
@@ -188,6 +190,7 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
 
   return (
     <form className={scss["admin-form"]} onSubmit={handleSubmit(onSubmit)}>
+
       <div className={scss["admin-form__top"]}>
         <Button
           theme="default"

@@ -5,7 +5,7 @@ import { DEVELOPER_CONFIG } from "../developer/developer.config";
 export const SITE_CONFIG = {
   name: "Алексей Киселев",
   title: "PCC ICF | Коуч",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://kiselev-coach.ru",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://alexseycoach.vercel.app/",
   locale: "ru_RU",
   developer: {
     name: DEVELOPER_CONFIG.name,
