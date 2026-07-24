@@ -12,7 +12,6 @@
   gap: var(--team-detail-card-gap);
   max-width: var(--team-detail-card-max-width);
   width: 100%;
-  
 
   &__info {
     display: flex;
@@ -70,6 +69,12 @@
 
     &__img {
       display: none;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    &__img {
+      display: flex;
     }
   }
 }
