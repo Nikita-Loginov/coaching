@@ -1,4 +1,3 @@
-// shared/lib/breadcrumbs.ts
 import {
   BREADCRUMB_MAP,
   BreadcrumbItem,

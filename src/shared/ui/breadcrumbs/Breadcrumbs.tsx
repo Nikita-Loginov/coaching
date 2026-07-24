@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import classNames from "classnames";
 
-import { getBreadcrumbs } from "@/shared/lib";
+import { getBreadcrumbs } from "@/shared/lib/breadcrumbs";
 
 import scss from "./Breadcrumbs.module.scss";
 

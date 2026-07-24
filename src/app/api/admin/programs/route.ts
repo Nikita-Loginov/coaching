@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/shared/lib/prisma";
 
 import { programSchema } from "@/entities/program/model/program.schema";
-import { mapFormToDb } from "@/entities/program/model/program.queries";
+import { mapFormToDb } from "@/entities/program/model/program.mapper";
 
 export const GET = async () => {
   const result = await auth();

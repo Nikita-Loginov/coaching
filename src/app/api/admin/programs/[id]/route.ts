@@ -8,7 +8,7 @@ import {
   programSchema,
   programUpdateSchema,
 } from "@/entities/program/model/program.schema";
-import { mapFormToDb } from "@/entities/program/model/program.queries";
+import { mapFormToDb } from "@/entities/program/model/program.mapper";
 
 interface RouteParams {
   params: Promise<{ id: string }>;

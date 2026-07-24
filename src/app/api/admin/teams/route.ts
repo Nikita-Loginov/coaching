@@ -50,16 +50,17 @@ export async function POST(request: NextRequest) {
 
   const { city, telegram, vk, ...rest } = parsed.data;
 
-  const team = await prisma.team.create({
-    data: {
-      ...rest,
-      city: city || null,
-      telegram: telegram || null,
-      vk: vk || null,
-    },
-  });
+  // const team = await prisma.team.create({
+  //   data: {
+  //     ...rest,
+  //     city: city || null,
+  //     telegram: telegram || null,
+  //     vk: vk || null,
+  //   },
+  // });
 
   revalidatePath("/", "layout");
 
-  return NextResponse.json(team, { status: 201 });
+  // return NextResponse.json(team, { status: 201 });
+  return NextResponse.json({ status: 201 });
 }

@@ -2,14 +2,13 @@ import { apiClient } from "@/shared/api/client";
 
 import type { ProgramFormValues } from "@/entities/program/model/program.schema";
 import type { ProgramItem } from "@/entities/program/model/program.types";
+import { ProgramFormData } from "@/entities/program/model/program.queries";
 import {
   mapFormToDb,
   mapProgram,
-  ProgramFormData,
-} from "@/entities/program/model/program.queries";
+} from "@/entities/program/model/program.mapper";
 
 import type { ProgramRow } from "@/entities/program/model/program.types";
-
 
 export type ProgramRecord = ProgramFormValues & {
   createdAt: string;
