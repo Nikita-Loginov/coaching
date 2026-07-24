@@ -27,7 +27,7 @@ export const AdminPanelSidebar = () => {
 
             const Icon = icon;
 
-            const isActive = pathname === to;
+            const isActive = pathname.includes(to);
 
             return (
               <li

@@ -17,8 +17,6 @@ export const TeamAdminList = () => {
     return <p className="p2">Команды пока нет</p>;
   }
 
-  console.log(teams)
-
   return (
     <AdminItems>
       {teams.length > 0 ? (
@@ -29,13 +27,13 @@ export const TeamAdminList = () => {
                 key={team.id}
                 item={{ ...team }}
                 variant="admin"
-                // onDelete={(id) => {
-                //   deleteProgram.mutate(id)
-                // }}
-                // deleteStatus={{
-                //   isPending: deleteProgram.isPending,
-                //   id: deleteProgram.variables,
-                // }}
+                onDelete={(id) => {
+                  deleteTeam.mutate(id)
+                }}
+                deleteStatus={{
+                  isPending: deleteTeam.isPending,
+                  id: deleteTeam.variables,
+                }}
               />
             );
           })}

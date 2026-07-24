@@ -66,3 +66,23 @@
     --team-card-img-scale: 1.05;
   }
 }
+
+.team-card-box {
+  --team-card-box-gap: 10px;
+  --team-card-box-btns-gap: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--team-card-box-gap);
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--team-card-box-btns-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --team-card-box-gap: #{vw(10)};
+    --team-card-box-btns-gap: #{vw(10)};
+  }
+}

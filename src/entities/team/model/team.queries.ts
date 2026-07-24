@@ -1,28 +1,7 @@
 import { prisma } from "@/shared/lib/prisma";
 
 import type { TeamItem } from "./team.types";
-
-type TeamRow = any;
-
-const mapTeam = (row: TeamRow): TeamItem => ({
-  id: row.id,
-  name: row.name,
-  middlename: row.middlename,
-  post: row.post,
-  img: row.img,
-  city: row.city ?? undefined,
-  info: row.info,
-  specializing: row.specializing,
-  certification: row.certification,
-  principle: row.principle,
-  socials:
-    row.telegram || row.vk
-      ? {
-          telegram: row.telegram ?? "",
-          vk: row.vk ?? "",
-        }
-      : undefined,
-});
+import { mapTeam } from "./team.mapper";
 
 export const getTeams = async (): Promise<TeamItem[]> => {
   const rows = await prisma.team.findMany({ orderBy: { createdAt: "asc" } });

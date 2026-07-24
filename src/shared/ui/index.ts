@@ -23,4 +23,5 @@ export * from './multi-box/MultiBox';
 export * from './multi-box/ui/multi-box-item/MultiBoxItem'
 export * from './multi-box/ui/multi-box-text-field/MultiBoxTextField'
 export * from './multi-box/ui/multi-box-title-description-field/MultiBoxTitleDescriptionField';
-export * from './modal/Modal'
+export * from './modal/Modal';
+export * from './image-upload/ImageUpload'

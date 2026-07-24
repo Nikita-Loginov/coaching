@@ -38,6 +38,7 @@
     overflow: hidden;
     aspect-ratio: 3 / 4;
     background-color: var(--gray-color-300);
+    position: relative;
 
     &:hover {
       img {

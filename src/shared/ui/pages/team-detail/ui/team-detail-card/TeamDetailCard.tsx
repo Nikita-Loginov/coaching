@@ -36,7 +36,7 @@ export const TeamDetailCard = ({
   return (
     <div className={scss["team-detail-card"]}>
       <div className={scss["team-detail-card__img"]}>
-        <Image src={img} alt={`${name} ${middlename}`} />
+        <Image src={img} alt={`${name} ${middlename}`} fill/>
       </div>
 
       <div className={scss["team-detail-card__info"]}>

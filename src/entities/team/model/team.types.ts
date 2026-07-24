@@ -16,3 +16,5 @@ export type TeamItem = {
   certification: string[];
   principle: string;
 };
+
+export type TeamRow = any;

@@ -2,14 +2,16 @@ import { Container, TopInner, Swiper } from "@/shared/ui";
 
 import { TeamCard } from "@/entities/team/ui";
 
-import { TEAMS_ITEMS } from "@/shared/config/teams/teams-items.config";
+import { getTeams } from "@/entities/team/model/team.queries";
 
 import scss from "./TeamsSection.module.scss";
 
-export const TeamsSection = () => {
-  if (TEAMS_ITEMS.length < 1) return;
+export const TeamsSection = async () => {
+  const teams = await getTeams();
 
-  const items = TEAMS_ITEMS.map((team) => {
+  if (teams.length < 1) return;
+
+  const items = teams.map((team) => {
     return <TeamCard key={team.id} item={team} />;
   });
 
@@ -34,8 +36,8 @@ export const TeamsSection = () => {
                 },
                 600: {
                   slidesPerView: 1.5,
-                }
-              }
+                },
+              },
             }}
             items={items}
             pagination

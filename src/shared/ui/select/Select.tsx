@@ -26,9 +26,25 @@ export const Select = ({
   label,
   className,
 }: SelectProps) => {
-  // console.log(value, 'value')
+  const currentValue = items.some((item) => item.value === value)
+    ? value
+    : undefined;
+
+  // console.log({
+  //   value,
+  //   currentValue,
+  //   items
+  // })
+
   return (
-    <SelectPrimitive.Root value={value} onValueChange={onValueChange}>
+    <SelectPrimitive.Root
+      value={currentValue}
+      onValueChange={(val) => {
+        if (val) {
+          onValueChange?.(val);
+        }
+      }}
+    >
       <div className={scss["select"]}>
         {label && <p className="p2 primary-color-400">{label}</p>}
 

@@ -6,11 +6,9 @@ import { getPrograms } from "@/entities/program/model/program.queries";
 
 import scss from "./ProgramsSection.module.scss";
 
-
 export const ProgramsSection = async () => {
   const programs = await getPrograms();
-  
-  
+
   return (
     <section className={scss["programs"]} id="programs">
       <Container>

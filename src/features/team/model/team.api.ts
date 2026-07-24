@@ -55,8 +55,16 @@ export const teamApi = {
   },
 
   create: async (data: TeamFormValues): Promise<TeamItem> => {
-    const payload = mapItemToRow(data);
-    const { data: created } = await apiClient.post<TeamRow>("admin/teams", payload);
+    const payload = {
+      id: data.id,
+      ...mapItemToRow(data),
+    };
+  
+    const { data: created } = await apiClient.post<TeamRow>(
+      "admin/teams",
+      payload
+    );
+  
     return mapTeamRowToItem(created);
   },
 

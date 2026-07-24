@@ -21,46 +21,79 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const { userId } = await auth();
+  try {
+    const { userId } = await auth();
 
-  if (!userId) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+    if (!userId) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
 
-  const body = await request.json();
-  const parsed = teamSchema.safeParse(body);
+    const body = await request.json();
 
-  if (!parsed.success) {
+    console.log("BODY FROM CLIENT:", body);
+
+    const parsed = teamSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.flatten() },
+        { status: 400 }
+      );
+    }
+
+    console.log("PARSED:", parsed.data);
+
+    const existing = await prisma.team.findUnique({
+      where: {
+        id: parsed.data.id,
+      },
+    });
+
+    if (existing) {
+      return NextResponse.json(
+        { error: "Тимейт с таким id уже существует" },
+        { status: 409 }
+      );
+    }
+
+    const { city, telegram, vk, ...rest } = parsed.data;
+
+    console.log("PRISMA DATA:", {
+      ...rest,
+      city,
+      telegram,
+      vk,
+    });
+
+    const team = await prisma.team.create({
+      data: {
+        ...rest,
+        city: city || null,
+        telegram: telegram || null,
+        vk: vk || null,
+      },
+    });
+
+    revalidatePath("/", "layout");
+
+    return NextResponse.json(team, { status: 201 });
+
+  } catch (error) {
+    console.error("CREATE TEAM ERROR:", error);
+
     return NextResponse.json(
-      { error: parsed.error.flatten() },
-      { status: 400 }
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : "Unknown error",
+      },
+      {
+        status: 500,
+      }
     );
   }
-
-  const existing = await prisma.team.findUnique({
-    where: { id: parsed.data.id },
-  });
-
-  if (existing) {
-    return NextResponse.json(
-      { error: "Тимейт с таким id уже существует" },
-      { status: 409 }
-    );
-  }
-
-  const { city, telegram, vk, ...rest } = parsed.data;
-
-  // const team = await prisma.team.create({
-  //   data: {
-  //     ...rest,
-  //     city: city || null,
-  //     telegram: telegram || null,
-  //     vk: vk || null,
-  //   },
-  // });
-
-  revalidatePath("/", "layout");
-
-  // return NextResponse.json(team, { status: 201 });
-  return NextResponse.json({ status: 201 });
 }

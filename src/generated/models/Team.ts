@@ -335,7 +335,7 @@ export type TeamCreateInput = {
   telegram?: string | null
   vk?: string | null
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type TeamUncheckedCreateInput = {
@@ -352,7 +352,7 @@ export type TeamUncheckedCreateInput = {
   telegram?: string | null
   vk?: string | null
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type TeamUpdateInput = {
@@ -403,7 +403,7 @@ export type TeamCreateManyInput = {
   telegram?: string | null
   vk?: string | null
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type TeamUpdateManyMutationInput = {

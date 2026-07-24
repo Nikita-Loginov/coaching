@@ -1,8 +1,8 @@
 import { Container } from "@/shared/ui";
 
-import { TEAMS_ITEMS } from "@/shared/config/teams/teams-items.config";
-
 import { TeamDetailInfo } from "../team-detail-info/TeamDetailInfo";
+
+import { getTeamById } from "@/entities/team/model/team.queries";
 
 import scss from "./TeamDetailPage.module.scss";
 
@@ -10,10 +10,9 @@ interface TeamDetailPageProps {
   teamId: string;
 }
 
-export const TeamDetailPage = ({ teamId }: TeamDetailPageProps) => {
-  const team = TEAMS_ITEMS.find(
-    (team) => team.id.toString() === teamId.toString()
-  );
+export const TeamDetailPage = async ({ teamId }: TeamDetailPageProps) => {
+  console.log(teamId)
+  const team = await getTeamById(teamId);
 
   if (!team) return;
 
@@ -28,4 +27,4 @@ export const TeamDetailPage = ({ teamId }: TeamDetailPageProps) => {
   );
 };
 
-export default TeamDetailPage
+export default TeamDetailPage;

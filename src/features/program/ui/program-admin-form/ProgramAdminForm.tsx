@@ -155,13 +155,17 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
     name: "seoKeywords",
   });
 
-  // useEffect(() => {
-  //   if (program && isEdit) {
-  //     reset(defaultValues);
-  //   }
-  // }, [program, isEdit, setValue]);
+  const icon = useWatch({
+    control,
+    name: "icon",
+    defaultValue: defaultValues.icon,
+  });
 
-  console.log(program, 'program')
+  const currency = useWatch({
+    control,
+    name: "currency",
+    defaultValue: defaultValues.currency,
+  });
 
   const onSubmit = async (data: ProgramFormInput) => {
     const parsed = programSchema.parse(data);
@@ -185,12 +189,9 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
   };
 
   if (isEdit && isLoading) return <p className="p2">Загрузка программы...</p>;
-  
-
 
   return (
     <form className={scss["admin-form"]} onSubmit={handleSubmit(onSubmit)}>
-
       <div className={scss["admin-form__top"]}>
         <Button
           theme="default"
@@ -252,8 +253,10 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
                 { value: "rub", label: "₽ (rub)" },
                 { value: "eu", label: "€ (eu)" },
               ]}
-              value={watch("currency")}
-              onValueChange={(val) => setValue("currency", val as "rub" | "eu")}
+              value={currency}
+              onValueChange={(val) => {
+                setValue("currency", val as "rub" | "eu")
+              }}
               label="Валюта"
             />
           </div>
@@ -264,8 +267,10 @@ export const ProgramAdminForm = ({ id, mode }: ProgramAdminFormProps) => {
                 value: key,
                 label: PROGRAM_ICON_LABELS[key],
               }))}
-              value={watch("icon")}
-              onValueChange={(val) => setValue("icon", val as ProgramIconKey)}
+              value={icon}
+              onValueChange={(val) => {
+                setValue("icon", val as ProgramIconKey);
+              }}
               label="Иконка"
             />
           </div>

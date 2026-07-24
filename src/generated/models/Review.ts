@@ -252,7 +252,7 @@ export type ReviewCreateInput = {
   desc?: Prisma.ReviewCreatedescInput | string[]
   targetType: $Enums.TargetType
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type ReviewUncheckedCreateInput = {
@@ -262,7 +262,7 @@ export type ReviewUncheckedCreateInput = {
   desc?: Prisma.ReviewCreatedescInput | string[]
   targetType: $Enums.TargetType
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type ReviewUpdateInput = {
@@ -292,7 +292,7 @@ export type ReviewCreateManyInput = {
   desc?: Prisma.ReviewCreatedescInput | string[]
   targetType: $Enums.TargetType
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
 export type ReviewUpdateManyMutationInput = {
