@@ -36,6 +36,7 @@ model Review {
   authorPost String
   desc       String[]
   targetType TargetType
+  targetId   String     @default("executive-coaching")
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
 }

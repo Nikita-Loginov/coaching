@@ -1,20 +1,28 @@
 .upload {
+  --upload-gap: 8px;
+  --upload-preview-gap: 10px;
+  --upload-img-size: 80px;
+  --upload-box-padding: 6px 6px;
+  --upload-box-border-width: 1px;
+  --upload-box-min-height: 50px;
+  --upload-box-gap: 10px;
+
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius-x);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--upload-gap);
 
   &__preview {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--upload-preview-gap);
   }
 
   &__img {
-    width: 80px;
-    height: 80px;
+    width: var(--upload-img-size);
+    height: var(--upload-img-size);
     overflow: hidden;
     position: relative;
     border-radius: var(--radius-xl);
@@ -31,12 +39,21 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    align-items: center;
+    gap: var(--upload-box-gap);
     justify-content: center;
-    padding: 6px 6px;
-    border: 1px solid var(--primary-color-100);
+    padding: var(--upload-box-padding);
+    border: var(--upload-box-border-width) solid var(--primary-color-100);
     border-radius: var(--radius-xl);
-    min-height: 50px;
+    min-height: var(--upload-box-min-height);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --upload-gap: #{vw(8)};
+    --upload-preview-gap: #{vw(10)};
+    --upload-img-size: #{vw(80)};
+    --upload-box-padding: #{vw(6)} #{vw(6)};
+    --upload-box-border-width: #{vw(1)};
+    --upload-box-min-height: #{vw(50)};
+    --upload-box-gap: #{vw(10)};
   }
 }

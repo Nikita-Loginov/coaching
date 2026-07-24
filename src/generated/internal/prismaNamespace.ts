@@ -703,6 +703,7 @@ export const ReviewScalarFieldEnum = {
   authorPost: 'authorPost',
   desc: 'desc',
   targetType: 'targetType',
+  targetId: 'targetId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

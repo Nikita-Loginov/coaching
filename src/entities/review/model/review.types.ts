@@ -5,9 +5,12 @@ export interface Review {
   author: ReviewAuthor;
   desc: string[];
   targetType: TargetType;
+  targetId: string;
 }
 
 export type ReviewAuthor = {
   name: string;
   post: string;
 };
+
+export type ReviewRow = any;

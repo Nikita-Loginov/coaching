@@ -6,26 +6,24 @@ import { REVIEWS_ITEMS } from "@/shared/config/reviews/reviews-items.config";
 
 import type { TargetType } from "@/shared/types";
 
+import { getReviewsByTarget } from "@/entities/review/model/review.queries";
+
 import scss from "./ReviewsSection.module.scss";
 
 interface ReviewsSectionProps {
   title?: string;
   desc?: string[];
-  targetType?: TargetType;
+  targetType: TargetType;
+  targetId: string;
 }
 
-export const ReviewsSection = ({
+export const ReviewsSection = async ({
   title = "Отзывы",
   desc = [],
   targetType,
+  targetId,
 }: ReviewsSectionProps) => {
-  const reviews = REVIEWS_ITEMS.filter(
-    (review) => review.targetType === targetType
-  );
-
-  const reviewsItems = reviews.map((review) => {
-      return <ReviewCard key={review.id} review={review} />;
-    });
+  const reviews = await getReviewsByTarget(targetType, targetId);
 
   if (reviews.length < 1) return;
 

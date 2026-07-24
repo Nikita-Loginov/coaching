@@ -16,6 +16,7 @@ interface SelectProps {
   items: SelectItem[];
   className?: string;
   label?: string;
+  disabled?: boolean;
 }
 
 export const Select = ({
@@ -25,10 +26,13 @@ export const Select = ({
   items,
   label,
   className,
+  disabled,
 }: SelectProps) => {
   const currentValue = items.some((item) => item.value === value)
     ? value
     : undefined;
+
+    // console.log(items, value)
 
   // console.log({
   //   value,
@@ -44,6 +48,7 @@ export const Select = ({
           onValueChange?.(val);
         }
       }}
+      disabled={disabled}
     >
       <div className={scss["select"]}>
         {label && <p className="p2 primary-color-400">{label}</p>}

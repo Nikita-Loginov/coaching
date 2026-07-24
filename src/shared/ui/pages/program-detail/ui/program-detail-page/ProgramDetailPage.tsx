@@ -13,7 +13,9 @@ interface ProgramDetailPageProps {
   idProgram: string;
 }
 
-export const ProgramDetailPage = async ({ idProgram }: ProgramDetailPageProps) => {
+export const ProgramDetailPage = async ({
+  idProgram,
+}: ProgramDetailPageProps) => {
   const program = await getProgramById(idProgram);
 
   if (!program) return;
@@ -25,12 +27,17 @@ export const ProgramDetailPage = async ({ idProgram }: ProgramDetailPageProps) =
           <div className={scss["program-detail-hero__inner"]}>
             <ProgramDetailTop program={program} />
 
-            <ProgramDetailInfo program={program}/>
+            <ProgramDetailInfo program={program} />
           </div>
         </Container>
       </section>
 
-      <ReviewsSection title="Отзывы о программе" desc={["Результаты наших клиентов"]} targetType="program" />
+      <ReviewsSection
+        title="Отзывы о программе"
+        desc={["Результаты наших клиентов"]}
+        targetType="program"
+        targetId={program.id}
+      />
     </>
   );
 };

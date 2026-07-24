@@ -33,8 +33,6 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
-    console.log("BODY FROM CLIENT:", body);
-
     const parsed = teamSchema.safeParse(body);
 
     if (!parsed.success) {
@@ -43,8 +41,6 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
-    console.log("PARSED:", parsed.data);
 
     const existing = await prisma.team.findUnique({
       where: {
@@ -60,13 +56,6 @@ export async function POST(request: NextRequest) {
     }
 
     const { city, telegram, vk, ...rest } = parsed.data;
-
-    console.log("PRISMA DATA:", {
-      ...rest,
-      city,
-      telegram,
-      vk,
-    });
 
     const team = await prisma.team.create({
       data: {

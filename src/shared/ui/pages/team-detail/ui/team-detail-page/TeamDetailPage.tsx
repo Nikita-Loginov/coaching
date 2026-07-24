@@ -11,7 +11,7 @@ interface TeamDetailPageProps {
 }
 
 export const TeamDetailPage = async ({ teamId }: TeamDetailPageProps) => {
-  console.log(teamId)
+  // console.log(teamId)
   const team = await getTeamById(teamId);
 
   if (!team) return;

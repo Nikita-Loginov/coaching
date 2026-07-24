@@ -1,0 +1,33 @@
+.review-admin-list {
+  --review-admin-list-gap: 28px;
+  --review-admin-list-filter-gap: 20px;
+  --review-admin-list-filter-item-gap: 6px;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--review-admin-list-gap);
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    gap: var(--review-admin-list-filter-gap);
+  }
+
+  &__filter-item {
+    display: flex;
+    align-items: center;
+    gap: var(--review-admin-list-filter-item-gap);
+    width: fit-content;
+  }
+
+  &__filter-text {
+    flex-shrink: 0;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --review-admin-list-gap: #{vw(28)};
+    --review-admin-list-filter-gap: #{vw(20)};
+    --review-admin-list-filter-item-gap: #{vw(6)};
+  }
+}

@@ -29,6 +29,7 @@ export type ReviewMinAggregateOutputType = {
   authorName: string | null
   authorPost: string | null
   targetType: $Enums.TargetType | null
+  targetId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -38,6 +39,7 @@ export type ReviewMaxAggregateOutputType = {
   authorName: string | null
   authorPost: string | null
   targetType: $Enums.TargetType | null
+  targetId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -48,6 +50,7 @@ export type ReviewCountAggregateOutputType = {
   authorPost: number
   desc: number
   targetType: number
+  targetId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -59,6 +62,7 @@ export type ReviewMinAggregateInputType = {
   authorName?: true
   authorPost?: true
   targetType?: true
+  targetId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -68,6 +72,7 @@ export type ReviewMaxAggregateInputType = {
   authorName?: true
   authorPost?: true
   targetType?: true
+  targetId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -78,6 +83,7 @@ export type ReviewCountAggregateInputType = {
   authorPost?: true
   desc?: true
   targetType?: true
+  targetId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -161,6 +167,7 @@ export type ReviewGroupByOutputType = {
   authorPost: string
   desc: string[]
   targetType: $Enums.TargetType
+  targetId: string
   createdAt: Date
   updatedAt: Date
   _count: ReviewCountAggregateOutputType | null
@@ -192,6 +199,7 @@ export type ReviewWhereInput = {
   authorPost?: Prisma.StringFilter<"Review"> | string
   desc?: Prisma.StringNullableListFilter<"Review">
   targetType?: Prisma.EnumTargetTypeFilter<"Review"> | $Enums.TargetType
+  targetId?: Prisma.StringFilter<"Review"> | string
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
 }
@@ -202,6 +210,7 @@ export type ReviewOrderByWithRelationInput = {
   authorPost?: Prisma.SortOrder
   desc?: Prisma.SortOrder
   targetType?: Prisma.SortOrder
+  targetId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -215,6 +224,7 @@ export type ReviewWhereUniqueInput = Prisma.AtLeast<{
   authorPost?: Prisma.StringFilter<"Review"> | string
   desc?: Prisma.StringNullableListFilter<"Review">
   targetType?: Prisma.EnumTargetTypeFilter<"Review"> | $Enums.TargetType
+  targetId?: Prisma.StringFilter<"Review"> | string
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
 }, "id">
@@ -225,6 +235,7 @@ export type ReviewOrderByWithAggregationInput = {
   authorPost?: Prisma.SortOrder
   desc?: Prisma.SortOrder
   targetType?: Prisma.SortOrder
+  targetId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ReviewCountOrderByAggregateInput
@@ -241,6 +252,7 @@ export type ReviewScalarWhereWithAggregatesInput = {
   authorPost?: Prisma.StringWithAggregatesFilter<"Review"> | string
   desc?: Prisma.StringNullableListFilter<"Review">
   targetType?: Prisma.EnumTargetTypeWithAggregatesFilter<"Review"> | $Enums.TargetType
+  targetId?: Prisma.StringWithAggregatesFilter<"Review"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Review"> | Date | string
 }
@@ -251,6 +263,7 @@ export type ReviewCreateInput = {
   authorPost: string
   desc?: Prisma.ReviewCreatedescInput | string[]
   targetType: $Enums.TargetType
+  targetId?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -261,6 +274,7 @@ export type ReviewUncheckedCreateInput = {
   authorPost: string
   desc?: Prisma.ReviewCreatedescInput | string[]
   targetType: $Enums.TargetType
+  targetId?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -271,6 +285,7 @@ export type ReviewUpdateInput = {
   authorPost?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.ReviewUpdatedescInput | string[]
   targetType?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  targetId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -281,6 +296,7 @@ export type ReviewUncheckedUpdateInput = {
   authorPost?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.ReviewUpdatedescInput | string[]
   targetType?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  targetId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -291,6 +307,7 @@ export type ReviewCreateManyInput = {
   authorPost: string
   desc?: Prisma.ReviewCreatedescInput | string[]
   targetType: $Enums.TargetType
+  targetId?: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -301,6 +318,7 @@ export type ReviewUpdateManyMutationInput = {
   authorPost?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.ReviewUpdatedescInput | string[]
   targetType?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  targetId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -311,6 +329,7 @@ export type ReviewUncheckedUpdateManyInput = {
   authorPost?: Prisma.StringFieldUpdateOperationsInput | string
   desc?: Prisma.ReviewUpdatedescInput | string[]
   targetType?: Prisma.EnumTargetTypeFieldUpdateOperationsInput | $Enums.TargetType
+  targetId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -321,6 +340,7 @@ export type ReviewCountOrderByAggregateInput = {
   authorPost?: Prisma.SortOrder
   desc?: Prisma.SortOrder
   targetType?: Prisma.SortOrder
+  targetId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -330,6 +350,7 @@ export type ReviewMaxOrderByAggregateInput = {
   authorName?: Prisma.SortOrder
   authorPost?: Prisma.SortOrder
   targetType?: Prisma.SortOrder
+  targetId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -339,6 +360,7 @@ export type ReviewMinOrderByAggregateInput = {
   authorName?: Prisma.SortOrder
   authorPost?: Prisma.SortOrder
   targetType?: Prisma.SortOrder
+  targetId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -364,6 +386,7 @@ export type ReviewSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   authorPost?: boolean
   desc?: boolean
   targetType?: boolean
+  targetId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["review"]>
@@ -374,6 +397,7 @@ export type ReviewSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   authorPost?: boolean
   desc?: boolean
   targetType?: boolean
+  targetId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["review"]>
@@ -384,6 +408,7 @@ export type ReviewSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   authorPost?: boolean
   desc?: boolean
   targetType?: boolean
+  targetId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["review"]>
@@ -394,11 +419,12 @@ export type ReviewSelectScalar = {
   authorPost?: boolean
   desc?: boolean
   targetType?: boolean
+  targetId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ReviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authorName" | "authorPost" | "desc" | "targetType" | "createdAt" | "updatedAt", ExtArgs["result"]["review"]>
+export type ReviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authorName" | "authorPost" | "desc" | "targetType" | "targetId" | "createdAt" | "updatedAt", ExtArgs["result"]["review"]>
 
 export type $ReviewPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Review"
@@ -409,6 +435,7 @@ export type $ReviewPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     authorPost: string
     desc: string[]
     targetType: $Enums.TargetType
+    targetId: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["review"]>
@@ -839,6 +866,7 @@ export interface ReviewFieldRefs {
   readonly authorPost: Prisma.FieldRef<"Review", 'String'>
   readonly desc: Prisma.FieldRef<"Review", 'String[]'>
   readonly targetType: Prisma.FieldRef<"Review", 'TargetType'>
+  readonly targetId: Prisma.FieldRef<"Review", 'String'>
   readonly createdAt: Prisma.FieldRef<"Review", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Review", 'DateTime'>
 }
