@@ -9,4 +9,9 @@
   @media (min-width: $desktop-breakpoint) {
     --admin-items-gap: #{vw(16)};
   }
+
+  @media (max-width: $lg-breakpoint) {
+    display: flex;
+    flex-direction: column;
+  }
 }

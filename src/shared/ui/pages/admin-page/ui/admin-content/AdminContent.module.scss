@@ -12,4 +12,8 @@
   @media (min-width: $desktop-breakpoint) {
     --admin-content-gap: #{vw(32)};
   }
+
+  @media (max-width: $md-desktop-breakpoint) {
+    max-width: 100%;
+  }
 }
