@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import { DEVELOPER_CONFIG } from "../developer/developer.config";
 
+
 export const SITE_CONFIG = {
   name: "Алексей Киселев",
   title: "PCC ICF | Коуч",
