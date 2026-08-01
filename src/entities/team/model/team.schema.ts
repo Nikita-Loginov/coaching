@@ -25,6 +25,6 @@ export const teamSchema = z.object({
 export type TeamFormValues = z.infer<typeof teamSchema>;
 export type TeamFormInput = z.input<typeof teamSchema>;
 
-export const teamUpdateSchema = teamSchema.omit({ id: true });
+export const teamUpdateSchema = teamSchema;
 
 export type TeamUpdateValues = z.infer<typeof teamUpdateSchema>;

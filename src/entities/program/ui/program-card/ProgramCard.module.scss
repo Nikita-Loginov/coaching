@@ -24,6 +24,7 @@
   border: var(--program-border-width) solid var(--primary-color-115);
   background-color: var(--dark-color-300);
   transition: transform var(--transition-base);
+  height: 100%;
 
   &:hover {
     transform: translateY(var(--program-hover-transform));

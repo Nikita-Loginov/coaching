@@ -13,27 +13,35 @@ export const programSchema = z.object({
   price: z.string().min(1, "Обязательное поле"),
   currency: z.enum(["rub", "eu"]),
   icon: z.enum(PROGRAM_ICON_KEYS),
-  targetAudience: z.array(
-    z.object({
-      value: z.string(),
-    })
-  ).default([]),
-  benefits: z.array(
-    z.object({
-      value: z.string(),
-    })
-  ).default([]),
-  includes: z.array(
-    z.object({
-      value: z.string(),
-    })
-  ).default([]),
-  curriculum: z.array(
-    z.object({
-      title: z.string(),
-      description: z.string(),
-    })
-  ).default([]),
+  targetAudience: z
+    .array(
+      z.object({
+        value: z.string(),
+      })
+    )
+    .default([]),
+  benefits: z
+    .array(
+      z.object({
+        value: z.string(),
+      })
+    )
+    .default([]),
+  includes: z
+    .array(
+      z.object({
+        value: z.string(),
+      })
+    )
+    .default([]),
+  curriculum: z
+    .array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    )
+    .default([]),
   seoTitle: z.string().min(1, "Обязательное поле"),
   seoDescription: z.string().min(1, "Обязательное поле"),
   seoImage: z.string().optional().default(""),
@@ -49,3 +57,12 @@ export type ProgramFormInput = z.input<typeof programSchema>;
 
 export const programUpdateSchema = programSchema.omit({ id: true });
 export type ProgramUpdateValues = z.infer<typeof programUpdateSchema>;
+
+export const programReorderSchema = z.object({
+  items: z.array(
+    z.object({
+      id: z.string(),
+      order: z.number().int(),
+    })
+  ),
+});

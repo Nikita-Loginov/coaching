@@ -47,11 +47,12 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     );
   }
 
-  const { city, telegram, vk, ...rest } = parsed.data;
+  const {id: newId, city, telegram, vk, ...rest } = parsed.data;
 
   const team = await prisma.team.update({
     where: { id },
     data: {
+      id: newId,
       ...rest,
       city: city || null,
       telegram: telegram || null,

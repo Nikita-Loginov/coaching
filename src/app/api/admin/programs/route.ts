@@ -10,7 +10,11 @@ import { mapFormToDb } from "@/entities/program/model/program.mapper";
 export const GET = async () => {
   const result = await auth();
 
-  const programs = await prisma.program.findMany();
+  const programs = await prisma.program.findMany({
+    orderBy: {
+      order: "asc",
+    },
+  });
 
   return NextResponse.json(programs);
 };

@@ -3,7 +3,7 @@ import { Images } from "@/shared/images";
 export const PERSON_CONFIG = {
   name: "Алексей",
   middlename: "Киселев",
-  post: "PCC ICF",
+  post: "ICF",
   images: [Images.AlexeiOne],
   experience: "10+",
   clients: "200+",

@@ -6,7 +6,7 @@ import { ProgramFormValues } from "./program.schema";
 import { mapProgram } from "./program.mapper";
 
 export const getPrograms = async (): Promise<ProgramItem[]> => {
-  const rows = await prisma.program.findMany({ orderBy: { createdAt: "asc" } });
+  const rows = await prisma.program.findMany({ orderBy: { order: "asc" } });
 
   return rows.map(mapProgram);
 };

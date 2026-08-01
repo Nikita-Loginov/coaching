@@ -87,6 +87,7 @@ export const ProgramScalarFieldEnum = {
   seoDescription: 'seoDescription',
   seoImage: 'seoImage',
   seoKeywords: 'seoKeywords',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

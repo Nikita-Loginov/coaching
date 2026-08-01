@@ -20,7 +20,7 @@ export const useUpdateTeam = (id: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data: Omit<TeamFormValues, "id">) => teamApi.update(id, data),
+    mutationFn: (data: TeamFormValues) => teamApi.update(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: TEAMS_QUERY_KEY });
     },

@@ -23,6 +23,7 @@ export const mapProgram = (row: ProgramRow): ProgramItem => ({
     image: row.seoImage,
     keywords: row.seoKeywords,
   },
+  order: row.order,
 });
 
 export const mapFormToDb = (formData: ProgramFormData) => ({

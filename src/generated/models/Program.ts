@@ -29,11 +29,13 @@ export type AggregateProgram = {
 export type ProgramAvgAggregateOutputType = {
   sessions: number | null
   months: number | null
+  order: number | null
 }
 
 export type ProgramSumAggregateOutputType = {
   sessions: number | null
   months: number | null
+  order: number | null
 }
 
 export type ProgramMinAggregateOutputType = {
@@ -48,6 +50,7 @@ export type ProgramMinAggregateOutputType = {
   seoTitle: string | null
   seoDescription: string | null
   seoImage: string | null
+  order: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -64,6 +67,7 @@ export type ProgramMaxAggregateOutputType = {
   seoTitle: string | null
   seoDescription: string | null
   seoImage: string | null
+  order: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -85,6 +89,7 @@ export type ProgramCountAggregateOutputType = {
   seoDescription: number
   seoImage: number
   seoKeywords: number
+  order: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -94,11 +99,13 @@ export type ProgramCountAggregateOutputType = {
 export type ProgramAvgAggregateInputType = {
   sessions?: true
   months?: true
+  order?: true
 }
 
 export type ProgramSumAggregateInputType = {
   sessions?: true
   months?: true
+  order?: true
 }
 
 export type ProgramMinAggregateInputType = {
@@ -113,6 +120,7 @@ export type ProgramMinAggregateInputType = {
   seoTitle?: true
   seoDescription?: true
   seoImage?: true
+  order?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -129,6 +137,7 @@ export type ProgramMaxAggregateInputType = {
   seoTitle?: true
   seoDescription?: true
   seoImage?: true
+  order?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -150,6 +159,7 @@ export type ProgramCountAggregateInputType = {
   seoDescription?: true
   seoImage?: true
   seoKeywords?: true
+  order?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -258,6 +268,7 @@ export type ProgramGroupByOutputType = {
   seoDescription: string
   seoImage: string
   seoKeywords: string[]
+  order: number
   createdAt: Date
   updatedAt: Date
   _count: ProgramCountAggregateOutputType | null
@@ -302,6 +313,7 @@ export type ProgramWhereInput = {
   seoDescription?: Prisma.StringFilter<"Program"> | string
   seoImage?: Prisma.StringFilter<"Program"> | string
   seoKeywords?: Prisma.StringNullableListFilter<"Program">
+  order?: Prisma.IntFilter<"Program"> | number
   createdAt?: Prisma.DateTimeFilter<"Program"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Program"> | Date | string
 }
@@ -323,6 +335,7 @@ export type ProgramOrderByWithRelationInput = {
   seoDescription?: Prisma.SortOrder
   seoImage?: Prisma.SortOrder
   seoKeywords?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -347,6 +360,7 @@ export type ProgramWhereUniqueInput = Prisma.AtLeast<{
   seoDescription?: Prisma.StringFilter<"Program"> | string
   seoImage?: Prisma.StringFilter<"Program"> | string
   seoKeywords?: Prisma.StringNullableListFilter<"Program">
+  order?: Prisma.IntFilter<"Program"> | number
   createdAt?: Prisma.DateTimeFilter<"Program"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Program"> | Date | string
 }, "id">
@@ -368,6 +382,7 @@ export type ProgramOrderByWithAggregationInput = {
   seoDescription?: Prisma.SortOrder
   seoImage?: Prisma.SortOrder
   seoKeywords?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProgramCountOrderByAggregateInput
@@ -397,6 +412,7 @@ export type ProgramScalarWhereWithAggregatesInput = {
   seoDescription?: Prisma.StringWithAggregatesFilter<"Program"> | string
   seoImage?: Prisma.StringWithAggregatesFilter<"Program"> | string
   seoKeywords?: Prisma.StringNullableListFilter<"Program">
+  order?: Prisma.IntWithAggregatesFilter<"Program"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Program"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Program"> | Date | string
 }
@@ -418,6 +434,7 @@ export type ProgramCreateInput = {
   seoDescription: string
   seoImage: string
   seoKeywords?: Prisma.ProgramCreateseoKeywordsInput | string[]
+  order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -439,6 +456,7 @@ export type ProgramUncheckedCreateInput = {
   seoDescription: string
   seoImage: string
   seoKeywords?: Prisma.ProgramCreateseoKeywordsInput | string[]
+  order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -460,6 +478,7 @@ export type ProgramUpdateInput = {
   seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
   seoImage?: Prisma.StringFieldUpdateOperationsInput | string
   seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -481,6 +500,7 @@ export type ProgramUncheckedUpdateInput = {
   seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
   seoImage?: Prisma.StringFieldUpdateOperationsInput | string
   seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -502,6 +522,7 @@ export type ProgramCreateManyInput = {
   seoDescription: string
   seoImage: string
   seoKeywords?: Prisma.ProgramCreateseoKeywordsInput | string[]
+  order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -523,6 +544,7 @@ export type ProgramUpdateManyMutationInput = {
   seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
   seoImage?: Prisma.StringFieldUpdateOperationsInput | string
   seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -544,6 +566,7 @@ export type ProgramUncheckedUpdateManyInput = {
   seoDescription?: Prisma.StringFieldUpdateOperationsInput | string
   seoImage?: Prisma.StringFieldUpdateOperationsInput | string
   seoKeywords?: Prisma.ProgramUpdateseoKeywordsInput | string[]
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -573,6 +596,7 @@ export type ProgramCountOrderByAggregateInput = {
   seoDescription?: Prisma.SortOrder
   seoImage?: Prisma.SortOrder
   seoKeywords?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -580,6 +604,7 @@ export type ProgramCountOrderByAggregateInput = {
 export type ProgramAvgOrderByAggregateInput = {
   sessions?: Prisma.SortOrder
   months?: Prisma.SortOrder
+  order?: Prisma.SortOrder
 }
 
 export type ProgramMaxOrderByAggregateInput = {
@@ -594,6 +619,7 @@ export type ProgramMaxOrderByAggregateInput = {
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
   seoImage?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -610,6 +636,7 @@ export type ProgramMinOrderByAggregateInput = {
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
   seoImage?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -617,6 +644,7 @@ export type ProgramMinOrderByAggregateInput = {
 export type ProgramSumOrderByAggregateInput = {
   sessions?: Prisma.SortOrder
   months?: Prisma.SortOrder
+  order?: Prisma.SortOrder
 }
 
 export type ProgramCreatetargetAudienceInput = {
@@ -694,6 +722,7 @@ export type ProgramSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   seoDescription?: boolean
   seoImage?: boolean
   seoKeywords?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["program"]>
@@ -715,6 +744,7 @@ export type ProgramSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   seoDescription?: boolean
   seoImage?: boolean
   seoKeywords?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["program"]>
@@ -736,6 +766,7 @@ export type ProgramSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   seoDescription?: boolean
   seoImage?: boolean
   seoKeywords?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["program"]>
@@ -757,11 +788,12 @@ export type ProgramSelectScalar = {
   seoDescription?: boolean
   seoImage?: boolean
   seoKeywords?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProgramOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "sessions" | "months" | "price" | "currency" | "icon" | "targetAudience" | "benefits" | "includes" | "curriculum" | "seoTitle" | "seoDescription" | "seoImage" | "seoKeywords" | "createdAt" | "updatedAt", ExtArgs["result"]["program"]>
+export type ProgramOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "sessions" | "months" | "price" | "currency" | "icon" | "targetAudience" | "benefits" | "includes" | "curriculum" | "seoTitle" | "seoDescription" | "seoImage" | "seoKeywords" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["program"]>
 
 export type $ProgramPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Program"
@@ -783,6 +815,7 @@ export type $ProgramPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     seoDescription: string
     seoImage: string
     seoKeywords: string[]
+    order: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["program"]>
@@ -1224,6 +1257,7 @@ export interface ProgramFieldRefs {
   readonly seoDescription: Prisma.FieldRef<"Program", 'String'>
   readonly seoImage: Prisma.FieldRef<"Program", 'String'>
   readonly seoKeywords: Prisma.FieldRef<"Program", 'String[]'>
+  readonly order: Prisma.FieldRef<"Program", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Program", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Program", 'DateTime'>
 }

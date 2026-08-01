@@ -22,6 +22,7 @@ export type ProgramItem = {
     image: string;
     keywords: string[];
   };
+  order: number
   // cvetIcon?: string;
 };
 

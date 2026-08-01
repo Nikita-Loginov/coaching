@@ -47,4 +47,16 @@ export const programApi = {
     await apiClient.delete(`admin/programs/${id}`);
     return id;
   },
+  reorder: async (
+    items: {
+      id: string;
+      order: number;
+    }[]
+  ) => {
+    const response = await apiClient.put("/admin/programs/reorder", {
+      items,
+    });
+
+    return response.data;
+  },
 };

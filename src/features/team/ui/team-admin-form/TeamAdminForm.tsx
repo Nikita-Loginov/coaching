@@ -107,9 +107,7 @@ export const TeamAdminForm = ({ id, mode }: TeamAdminFormProps) => {
 
     try {
       if (isEdit && id) {
-        const { id: _, ...updateData } = parsed;
-
-        await updateTeam.mutateAsync(updateData);
+        await updateTeam.mutateAsync(parsed);
       } else {
         await createTeam.mutateAsync(parsed);
       }
