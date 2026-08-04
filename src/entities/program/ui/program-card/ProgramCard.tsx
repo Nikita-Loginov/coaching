@@ -50,7 +50,11 @@ export const ProgramCard = ({
 
         {duration.months && duration.sessions ? (
           <div
-            className={classNames(scss["program__block"], "primary-color-100")}
+            className={classNames(
+              scss["program__block"],
+              scss["program__block--info"],
+              "primary-color-100"
+            )}
           >
             <p className="p3">
               {duration.sessions} сессий / {duration.months} месяца

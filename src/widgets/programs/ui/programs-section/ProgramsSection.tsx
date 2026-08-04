@@ -13,7 +13,7 @@ export const ProgramsSection = async () => {
     <section className={scss["programs"]} id="programs">
       <Container>
         <TopInner
-          title="Программы коучинга"
+          title="Программы"
           desc={["Индивидуально. Для команд. Для первых лиц."]}
         >
           {programs.length > 0 ? (

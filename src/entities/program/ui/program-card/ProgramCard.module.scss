@@ -49,16 +49,21 @@
     display: flex;
     flex-direction: column;
     gap: var(--program-block-gap);
+
+    &--info {
+      margin-top: auto;
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     gap: var(--program-content-gap);
+    flex: 1;
 
-    & > *:not(:last-child) {
-      padding-bottom: var(--program-content-gap);
-      border-bottom: var(--program-content-border-width) solid
+    & > *:not(:first-child) {
+      padding-top: var(--program-content-gap);
+      border-top: var(--program-content-border-width) solid
         var(--primary-color-115);
     }
   }
@@ -67,7 +72,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--program-footer-gap);
-    margin-top: auto;
+    // margin-top: auto;
   }
 
   &__btns {
