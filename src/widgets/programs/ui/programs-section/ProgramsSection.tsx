@@ -14,7 +14,7 @@ export const ProgramsSection = async () => {
       <Container>
         <TopInner
           title="Программы"
-          desc={["Индивидуально. Для команд. Для первых лиц."]}
+          // desc={["Индивидуально. Для команд. Для первых лиц."]}
         >
           {programs.length > 0 ? (
             <div className={scss["programs__items"]}>

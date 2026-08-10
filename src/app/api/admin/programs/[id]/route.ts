@@ -55,10 +55,7 @@ export const PUT = async (request: NextRequest, { params }: RouteParams) => {
     );
   }
 
-  const dbPayload = mapFormToDb({
-    ...parsed.data,
-    id,
-  });
+  const dbPayload = mapFormToDb(parsed.data);
 
   const program = await prisma.program.update({
     where: {

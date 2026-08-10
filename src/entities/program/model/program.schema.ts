@@ -55,7 +55,7 @@ export const programSchema = z.object({
 export type ProgramFormValues = z.infer<typeof programSchema>;
 export type ProgramFormInput = z.input<typeof programSchema>;
 
-export const programUpdateSchema = programSchema.omit({ id: true });
+export const programUpdateSchema = programSchema;
 export type ProgramUpdateValues = z.infer<typeof programUpdateSchema>;
 
 export const programReorderSchema = z.object({

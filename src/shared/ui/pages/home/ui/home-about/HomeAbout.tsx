@@ -31,11 +31,15 @@ export const HomeAbout = () => {
 
               <div className={scss["home-about__items"]}>
                 {ABOUT_STAT.map((stat) => {
-                  return (
-                    <div key={stat.label} className={scss["home-about__item"]}>
-                      <p className="p1 font-text-italic">{stat.title}</p>
+                  const {label, subtitle, title} = stat;
 
-                      <p className="p3 gray-color-200">{stat.label}</p>
+                  return (
+                    <div key={label} className={scss["home-about__item"]}>
+                      <p className="p1 font-text-italic">
+                        {title} {subtitle ? <span className="p4">{subtitle}</span> : null}
+                      </p>
+
+                      <p className="p3 gray-color-200">{label}</p>
                     </div>
                   );
                 })}
@@ -53,7 +57,8 @@ export const HomeAbout = () => {
 
                 <div className={scss["home-about__img-textbox"]}>
                   <p className="p3">
-                    "Хороший результат моей работы — команда, которой со временем я становлюсь не нужен"
+                    "Хороший результат моей работы — команда, которой со
+                    временем я становлюсь не нужен"
                   </p>
                 </div>
               </div>
@@ -75,4 +80,4 @@ export const HomeAbout = () => {
   );
 };
 
-export default HomeAbout
+export default HomeAbout;

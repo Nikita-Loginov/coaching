@@ -6,12 +6,13 @@ export const ABOUT_STAT = [
     label: "лет опыта",
   },
   {
-    title: PERSON_CONFIG.clients,
-    label: "клиентов",
+    title: `${PERSON_CONFIG.timeWork}`,
+    subtitle: 'часов',
+    label: "работы с командами",
   },
   {
-    title: PERSON_CONFIG.successRate,
-    label: "достигают цели",
+    title: PERSON_CONFIG.post,
+    label: "стандарты",
   },
 ];
 

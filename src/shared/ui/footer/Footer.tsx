@@ -35,7 +35,7 @@ export const Footer = () => {
               scss["footer__block--center"]
             )}
           >
-            <p className="p2 primary-color-100">Следите за мной</p>
+            <p className="p2 primary-color-100">Связаться со мной</p>
 
             <Socials className={scss["footer__socials"]} items={SOCIAL_ITEMS_PERSON}/>
           </div>

@@ -7,6 +7,7 @@ export const PERSON_CONFIG = {
   images: [Images.AlexeiOne],
   experience: "10+",
   clients: "200+",
+  timeWork: '1000+',
   successRate: "98%",
   socials: {
     telegram: "https://t.me/AlekseyKiselev21",
