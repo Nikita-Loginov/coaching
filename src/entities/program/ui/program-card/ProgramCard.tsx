@@ -6,7 +6,7 @@ import { PROGRAM_ICON_MAP } from "../../lib/icon-map";
 
 import { Button } from "@/shared/ui";
 
-import { getSymbolCurrency } from "@/shared/utils";
+import { getSymbolCurrency, pluralize } from "@/shared/utils";
 
 import scss from "./ProgramCard.module.scss";
 
@@ -57,7 +57,10 @@ export const ProgramCard = ({
             )}
           >
             <p className="p3">
-              {duration.sessions} сессий / {duration.months} месяца
+              {duration.sessions}{" "}
+              {pluralize(duration.sessions, "сессия", "сессии", "сессий")} /{" "}
+              {duration.months}{" "}
+              {pluralize(duration.months, "месяц", "месяца", "месяцев")}
             </p>
 
             <p className="p1 font-text-second">

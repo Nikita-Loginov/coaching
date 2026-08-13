@@ -5,7 +5,7 @@ import { DEVELOPER_CONFIG } from "../developer/developer.config";
 
 export const SITE_CONFIG = {
   name: "Алексей Киселев",
-  title: "PCC ICF | Коуч",
+  title: "ICF | Коуч",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://alexseycoach.vercel.app/",
   locale: "ru_RU",
   developer: {
@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
 const isProduction = process.env.NEXT_PUBLIC_IS_PRODUCTION === "true";
 
 export const HOME_DESCRIPTION =
-  "Алексей Киселев — сертифицированный коуч PCC ICF с опытом 10+ лет. Помогаю руководителям и предпринимателям достигать целей, развивать лидерские качества и управлять изменениями. Коучинг для бизнеса и жизни.";
+  "Алексей Киселев - командный коуч ICF с опытом 10+ лет. Помогаю группам сильных людей становиться сильными командами.";
 
 export const KEYWORDS = [
   "коуч",
