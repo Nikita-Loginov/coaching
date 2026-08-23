@@ -1,0 +1,110 @@
+.contacts {
+  --contacts-padding: calc(var(--gap-blocks)) 0;
+  --contacts-inner-max-width: 50%;
+  --contacts-inner-gap: 40px;
+  --contacts-block-gap: 20px;
+  --contacts-list-gap: 20px;
+  --contacts-link-gap: 10px;
+  --contacts-link-icon-size: 30px;
+  --contacts-link-icon-border-width: 1px;
+  --contacts-link-icon-svg-size: 50%;
+  --contacts-link-block-gap: 8px;
+
+  background-color: var(--dark-color-300);
+  padding: var(--contacts-padding);
+
+  &__inner {
+    max-width: var(--contacts-inner-max-width);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--contacts-inner-gap);
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contacts-block-gap);
+  }
+
+  &__textbox {
+    color: var(--gray-color-300);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--contacts-list-gap);
+  }
+
+  &__item {
+    width: fit-content;
+
+    &:hover {
+      .contacts {
+        &__link-icon {
+          border-color: var(--primary-color-100);
+          color: var(--primary-color-100);
+        }
+
+        &__link-href {
+          color: var(--primary-color-100);
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: var(--contacts-link-gap);
+    cursor: pointer;
+  }
+
+  &__link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--contacts-link-icon-size);
+    height: var(--contacts-link-icon-size);
+    border-radius: 50%;
+    border: var(--contacts-link-icon-border-width) solid var(--gray-color-0);
+    color: var(--gray-color-0);
+    transition:
+      border-color var(--transition-base),
+      color var(--transition-base);
+
+    svg {
+      width: var(--contacts-link-icon-svg-size);
+    }
+  }
+
+  &__link-href {
+    transition: color var(--transition-base);
+  }
+
+  &__link-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--contacts-link-block-gap);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    --contacts-padding: calc(var(--gap-blocks)) 0;
+    --contacts-inner-max-width: 50%;
+    --contacts-inner-gap: #{vw(40)};
+    --contacts-block-gap: #{vw(20)};
+    --contacts-list-gap: #{vw(20)};
+    --contacts-link-gap: #{vw(10)};
+    --contacts-link-icon-size: #{vw(30)};
+    --contacts-link-icon-border-width: #{vw(1)};
+    --contacts-link-icon-svg-size: 50%;
+    --contacts-link-block-gap: #{vw(8)};
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    --contacts-inner-max-width: 100%;
+  }
+}

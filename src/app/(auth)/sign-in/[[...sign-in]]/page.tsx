@@ -5,7 +5,7 @@ import scss from './page.module.scss'
 export default function SignInPage() {
   return (
     <div className={scss['sign-in']}>
-      <SignIn path="/sign-in" />
+      <SignIn path="/sign-in" withSignUp={false}/>
     </div>
   );
 }

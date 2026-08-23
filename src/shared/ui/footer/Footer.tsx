@@ -16,7 +16,7 @@ export const Footer = () => {
   const cleanPhone = PERSON_CONFIG.socials.phone.replace(/\s/g, "");
 
   return (
-    <footer className={scss["footer"]}>
+    <footer className={scss["footer"]} id="footer">
       <Container>
         <div className={scss["footer__inner"]}>
           <div className={scss["footer__block"]}>

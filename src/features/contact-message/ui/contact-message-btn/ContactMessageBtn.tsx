@@ -4,14 +4,16 @@ import { Button } from "@/shared/ui";
 import type { ButtonProps } from "@/shared/ui";
 
 export const ContactMessageBtn = ({ children, ...props }: ButtonProps) => {
-  const { open } = useModalStore();
+  // const { open } = useModalStore();
 
   return (
     <Button
       {...props}
-      onClick={() => {
-        open("contact", {});
-      }}
+      // onClick={() => {
+      //   open("contact", {});
+      // }}
+      as="link"
+      to="#contacts"
     >
       {children}
     </Button>
