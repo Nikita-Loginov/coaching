@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   },
 } as const;
 
-const isProduction = process.env.NEXT_PUBLIC_IS_PRODUCTION === "true";
+const isProduction = true;
 
 export const HOME_DESCRIPTION =
   "Алексей Киселев - командный коуч ICF с опытом 10+ лет. Помогаю группам сильных людей становиться сильными командами.";
