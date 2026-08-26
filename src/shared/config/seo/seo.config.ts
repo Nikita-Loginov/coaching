@@ -2,11 +2,10 @@ import { Metadata } from "next";
 
 import { DEVELOPER_CONFIG } from "../developer/developer.config";
 
-
 export const SITE_CONFIG = {
   name: "Алексей Киселев",
   title: "ICF | Коуч",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://alexseycoach.vercel.app/",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://alexseycoach.vercel.app",
   locale: "ru_RU",
   developer: {
     name: DEVELOPER_CONFIG.name,
@@ -18,29 +17,33 @@ export const SITE_CONFIG = {
 const isProduction = true;
 
 export const HOME_DESCRIPTION =
-  "Алексей Киселев - командный коуч ICF с опытом 10+ лет. Помогаю группам сильных людей становиться сильными командами.";
+  "Алексей Киселев — командный коуч ICF. Командный коучинг и развитие команд для руководителей и бизнеса. Более 10 лет опыта в коучинге и развитии команд.";
 
 export const KEYWORDS = [
-  "коуч",
-  "icf коуч",
-  "pcc коуч",
-  "коучинг",
+  "Алексей Киселев",
+  "командный коуч",
+  "командный коучинг",
+  "коучинг команд",
+  "коуч для команд",
+  "коучинг для команд",
+  "ICF коуч",
+  "PCC коуч",
+  "профессиональный коуч",
   "бизнес коуч",
+  "бизнес коучинг",
+  "коучинг руководителей",
+  "коучинг для руководителей",
+  "развитие команд",
+  "развитие команд в бизнесе",
+  "командообразование",
+  "эффективность команды",
   "лидерство",
+  "развитие лидерства",
   "управление изменениями",
   "эмоциональный интеллект",
-  "коуч москва",
-  "коучинг руководителей",
-  "Алексей Киселев",
-  "профессиональный коуч",
-  "коучинг для бизнеса",
-  "развитие лидерства",
-  "командообразование",
-  "карьерный коучинг",
   "стратегическое планирование",
-  "коуч icf",
-  "найти коуча",
   "коучинг онлайн",
+  "коуч Москва",
 ];
 
 export const seoConfig: Metadata = {
@@ -109,6 +112,10 @@ export const seoConfig: Metadata = {
     ],
   },
 
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
+
   twitter: {
     card: "summary_large_image",
     title: `${SITE_CONFIG.name} - ${SITE_CONFIG.title}`,
@@ -122,10 +129,10 @@ export const seoConfig: Metadata = {
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
     },
-    {
-      name: SITE_CONFIG.developer.name,
-      url: SITE_CONFIG.developer.url,
-    },
+    // {
+    //   name: SITE_CONFIG.developer.name,
+    //   url: SITE_CONFIG.developer.url,
+    // },
   ],
 
   applicationName: SITE_CONFIG.name,
@@ -167,11 +174,17 @@ export const seoConfig: Metadata = {
 
 export function createPageMetadata(
   title: string,
-  description?: string
+  description?: string,
+  canonical?: string
 ): Metadata {
   return {
     title,
     description: description || HOME_DESCRIPTION,
+    alternates: canonical
+      ? {
+          canonical,
+        }
+      : undefined,
     other: {
       developer: SITE_CONFIG.developer.name,
       "developer-url": SITE_CONFIG.developer.url,

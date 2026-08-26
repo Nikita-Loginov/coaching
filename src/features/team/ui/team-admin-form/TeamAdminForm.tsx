@@ -75,7 +75,7 @@ export const TeamAdminForm = ({ id, mode }: TeamAdminFormProps) => {
         name: team.name,
         middlename: team.middlename,
         post: team.post,
-        img: typeof team.img === "string" ? team.img : team.img.src,
+        img: team.img,
         city: team.city,
         info: team.info,
         specializing: team.specializing,

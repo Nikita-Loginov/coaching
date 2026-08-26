@@ -5,7 +5,7 @@ export type TeamItem = {
   name: string;
   middlename: string;
   id: string;
-  img: string | StaticImageData;
+  img: string;
   socials?: {
     telegram: string,
     vk: string,
