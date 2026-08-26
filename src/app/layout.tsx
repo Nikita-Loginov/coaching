@@ -18,7 +18,6 @@ import {
 
 import "@styles/global.scss";
 
-
 const interSans = Inter({
   variable: "--font-inter-sans",
   subsets: ["latin"],
@@ -49,6 +48,13 @@ export default function RootLayout({
       lang="ru"
       className={`${interSans.variable} ${cormorantGaramondSans.variable}`}
     >
+      <head>
+        <meta
+          name="google-site-verification"
+          content="ht_6l17oLgFr6PE0EX6qDpQe_6M5cyTvQvEiPiBx9fw"
+        />
+        <meta name="yandex-verification" content="48af486ba2b25d47" />
+      </head>
       <body>
         <ClerkProvider>
           <ModalProvider>
