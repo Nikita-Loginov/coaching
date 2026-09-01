@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { TeamDetailPage } from "@/shared/ui/pages/team-detail";
-import { getTeamById } from "@/entities/team/model/team.queries";
+import { getTeamById, getTeams } from "@/entities/team/model/team.queries";
 import { SITE_CONFIG } from "@/shared/config/seo";
 
 interface TeamDetailProps {
@@ -83,6 +83,14 @@ export async function generateMetadata({
       },
     ],
   };
+}
+
+export async function generateStaticParams() {
+  const teams = await getTeams();
+
+  return teams.map((team) => ({
+    id: team.id,
+  }));
 }
 
 export default async function TeamDetail({ params }: TeamDetailProps) {

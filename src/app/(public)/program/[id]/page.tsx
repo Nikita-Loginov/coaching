@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ProgramDetailPage } from "@/shared/ui/pages/program-detail";
 
-import { getProgramById } from "@/entities/program/model/program.queries";
+import { getProgramById, getPrograms } from "@/entities/program/model/program.queries";
 
 import { createProgramSchema } from "@/shared/config/seo";
 import { Metadata } from "next";
@@ -50,6 +50,14 @@ export async function generateMetadata({
       images: [program.seo.image],
     },
   };
+}
+
+export async function generateStaticParams() {
+  const programs = await getPrograms();
+
+  return programs.map((program) => ({
+    id: program.id,
+  }));
 }
 
 export default async function ProgramDetali({ params }: PageProps) {
