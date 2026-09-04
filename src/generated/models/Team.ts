@@ -20,8 +20,18 @@ export type TeamModel = runtime.Types.Result.DefaultSelection<Prisma.$TeamPayloa
 
 export type AggregateTeam = {
   _count: TeamCountAggregateOutputType | null
+  _avg: TeamAvgAggregateOutputType | null
+  _sum: TeamSumAggregateOutputType | null
   _min: TeamMinAggregateOutputType | null
   _max: TeamMaxAggregateOutputType | null
+}
+
+export type TeamAvgAggregateOutputType = {
+  order: number | null
+}
+
+export type TeamSumAggregateOutputType = {
+  order: number | null
 }
 
 export type TeamMinAggregateOutputType = {
@@ -34,6 +44,7 @@ export type TeamMinAggregateOutputType = {
   principle: string | null
   telegram: string | null
   vk: string | null
+  order: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -48,6 +59,7 @@ export type TeamMaxAggregateOutputType = {
   principle: string | null
   telegram: string | null
   vk: string | null
+  order: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -65,11 +77,20 @@ export type TeamCountAggregateOutputType = {
   principle: number
   telegram: number
   vk: number
+  order: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
+
+export type TeamAvgAggregateInputType = {
+  order?: true
+}
+
+export type TeamSumAggregateInputType = {
+  order?: true
+}
 
 export type TeamMinAggregateInputType = {
   id?: true
@@ -81,6 +102,7 @@ export type TeamMinAggregateInputType = {
   principle?: true
   telegram?: true
   vk?: true
+  order?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -95,6 +117,7 @@ export type TeamMaxAggregateInputType = {
   principle?: true
   telegram?: true
   vk?: true
+  order?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -112,6 +135,7 @@ export type TeamCountAggregateInputType = {
   principle?: true
   telegram?: true
   vk?: true
+  order?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -155,6 +179,18 @@ export type TeamAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: TeamAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: TeamSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: TeamMinAggregateInputType
@@ -185,6 +221,8 @@ export type TeamGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   _count?: TeamCountAggregateInputType | true
+  _avg?: TeamAvgAggregateInputType
+  _sum?: TeamSumAggregateInputType
   _min?: TeamMinAggregateInputType
   _max?: TeamMaxAggregateInputType
 }
@@ -202,9 +240,12 @@ export type TeamGroupByOutputType = {
   principle: string
   telegram: string | null
   vk: string | null
+  order: number
   createdAt: Date
   updatedAt: Date
   _count: TeamCountAggregateOutputType | null
+  _avg: TeamAvgAggregateOutputType | null
+  _sum: TeamSumAggregateOutputType | null
   _min: TeamMinAggregateOutputType | null
   _max: TeamMaxAggregateOutputType | null
 }
@@ -240,6 +281,7 @@ export type TeamWhereInput = {
   principle?: Prisma.StringFilter<"Team"> | string
   telegram?: Prisma.StringNullableFilter<"Team"> | string | null
   vk?: Prisma.StringNullableFilter<"Team"> | string | null
+  order?: Prisma.IntFilter<"Team"> | number
   createdAt?: Prisma.DateTimeFilter<"Team"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Team"> | Date | string
 }
@@ -257,6 +299,7 @@ export type TeamOrderByWithRelationInput = {
   principle?: Prisma.SortOrder
   telegram?: Prisma.SortOrderInput | Prisma.SortOrder
   vk?: Prisma.SortOrderInput | Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -277,6 +320,7 @@ export type TeamWhereUniqueInput = Prisma.AtLeast<{
   principle?: Prisma.StringFilter<"Team"> | string
   telegram?: Prisma.StringNullableFilter<"Team"> | string | null
   vk?: Prisma.StringNullableFilter<"Team"> | string | null
+  order?: Prisma.IntFilter<"Team"> | number
   createdAt?: Prisma.DateTimeFilter<"Team"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Team"> | Date | string
 }, "id">
@@ -294,11 +338,14 @@ export type TeamOrderByWithAggregationInput = {
   principle?: Prisma.SortOrder
   telegram?: Prisma.SortOrderInput | Prisma.SortOrder
   vk?: Prisma.SortOrderInput | Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.TeamCountOrderByAggregateInput
+  _avg?: Prisma.TeamAvgOrderByAggregateInput
   _max?: Prisma.TeamMaxOrderByAggregateInput
   _min?: Prisma.TeamMinOrderByAggregateInput
+  _sum?: Prisma.TeamSumOrderByAggregateInput
 }
 
 export type TeamScalarWhereWithAggregatesInput = {
@@ -317,6 +364,7 @@ export type TeamScalarWhereWithAggregatesInput = {
   principle?: Prisma.StringWithAggregatesFilter<"Team"> | string
   telegram?: Prisma.StringNullableWithAggregatesFilter<"Team"> | string | null
   vk?: Prisma.StringNullableWithAggregatesFilter<"Team"> | string | null
+  order?: Prisma.IntWithAggregatesFilter<"Team"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Team"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Team"> | Date | string
 }
@@ -334,6 +382,7 @@ export type TeamCreateInput = {
   principle: string
   telegram?: string | null
   vk?: string | null
+  order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -351,6 +400,7 @@ export type TeamUncheckedCreateInput = {
   principle: string
   telegram?: string | null
   vk?: string | null
+  order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -368,6 +418,7 @@ export type TeamUpdateInput = {
   principle?: Prisma.StringFieldUpdateOperationsInput | string
   telegram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vk?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -385,6 +436,7 @@ export type TeamUncheckedUpdateInput = {
   principle?: Prisma.StringFieldUpdateOperationsInput | string
   telegram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vk?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -402,6 +454,7 @@ export type TeamCreateManyInput = {
   principle: string
   telegram?: string | null
   vk?: string | null
+  order?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -419,6 +472,7 @@ export type TeamUpdateManyMutationInput = {
   principle?: Prisma.StringFieldUpdateOperationsInput | string
   telegram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vk?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -436,6 +490,7 @@ export type TeamUncheckedUpdateManyInput = {
   principle?: Prisma.StringFieldUpdateOperationsInput | string
   telegram?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   vk?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -453,8 +508,13 @@ export type TeamCountOrderByAggregateInput = {
   principle?: Prisma.SortOrder
   telegram?: Prisma.SortOrder
   vk?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type TeamAvgOrderByAggregateInput = {
+  order?: Prisma.SortOrder
 }
 
 export type TeamMaxOrderByAggregateInput = {
@@ -467,6 +527,7 @@ export type TeamMaxOrderByAggregateInput = {
   principle?: Prisma.SortOrder
   telegram?: Prisma.SortOrder
   vk?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -481,8 +542,13 @@ export type TeamMinOrderByAggregateInput = {
   principle?: Prisma.SortOrder
   telegram?: Prisma.SortOrder
   vk?: Prisma.SortOrder
+  order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type TeamSumOrderByAggregateInput = {
+  order?: Prisma.SortOrder
 }
 
 export type TeamCreateinfoInput = {
@@ -531,6 +597,7 @@ export type TeamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   principle?: boolean
   telegram?: boolean
   vk?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["team"]>
@@ -548,6 +615,7 @@ export type TeamSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   principle?: boolean
   telegram?: boolean
   vk?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["team"]>
@@ -565,6 +633,7 @@ export type TeamSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   principle?: boolean
   telegram?: boolean
   vk?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["team"]>
@@ -582,11 +651,12 @@ export type TeamSelectScalar = {
   principle?: boolean
   telegram?: boolean
   vk?: boolean
+  order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type TeamOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "middlename" | "post" | "img" | "city" | "info" | "specializing" | "certification" | "principle" | "telegram" | "vk" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
+export type TeamOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "middlename" | "post" | "img" | "city" | "info" | "specializing" | "certification" | "principle" | "telegram" | "vk" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
 
 export type $TeamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Team"
@@ -604,6 +674,7 @@ export type $TeamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     principle: string
     telegram: string | null
     vk: string | null
+    order: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["team"]>
@@ -1041,6 +1112,7 @@ export interface TeamFieldRefs {
   readonly principle: Prisma.FieldRef<"Team", 'String'>
   readonly telegram: Prisma.FieldRef<"Team", 'String'>
   readonly vk: Prisma.FieldRef<"Team", 'String'>
+  readonly order: Prisma.FieldRef<"Team", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Team", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Team", 'DateTime'>
 }

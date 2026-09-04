@@ -14,6 +14,25 @@
   padding: var(--team-card-padding);
   aspect-ratio: 7 / 9;
 
+  &--admin {
+    aspect-ratio: 4 / 4;
+    border: 1px solid var(--primary-color-115);
+    background-color: var(--dark-color-300);
+
+    .team-card {
+      &__img-box {
+        // position: relative;
+        // width: 50px;
+        // height: 50px;
+        // aspect-ratio: 1 / 1;
+
+        img {
+          // position: sta ;
+        }
+      }
+    }
+  }
+
   &:before {
     position: absolute;
     inset: 0;

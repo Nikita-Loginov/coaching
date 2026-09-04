@@ -14,7 +14,7 @@ export async function GET() {
   }
 
   const teams = await prisma.team.findMany({
-    orderBy: { createdAt: "asc" },
+    orderBy: { order: "asc" },
   });
 
   return NextResponse.json(teams);
@@ -25,10 +25,7 @@ export async function POST(request: NextRequest) {
     const { userId } = await auth();
 
     if (!userId) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const body = await request.json();
@@ -69,16 +66,12 @@ export async function POST(request: NextRequest) {
     revalidatePath("/", "layout");
 
     return NextResponse.json(team, { status: 201 });
-
   } catch (error) {
     console.error("CREATE TEAM ERROR:", error);
 
     return NextResponse.json(
       {
-        error:
-          error instanceof Error
-            ? error.message
-            : "Unknown error",
+        error: error instanceof Error ? error.message : "Unknown error",
       },
       {
         status: 500,

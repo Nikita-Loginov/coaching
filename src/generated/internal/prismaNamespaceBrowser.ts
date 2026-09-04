@@ -122,6 +122,7 @@ export const TeamScalarFieldEnum = {
   principle: 'principle',
   telegram: 'telegram',
   vk: 'vk',
+  order: 'order',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
